@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Slab&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merienda&display=swap");
+/* line 1, ../../src/scss/variables.scss */
+:root {
+  --navbarHeight: 70px;
+  /*Colors*/
+  --c1: #aabbcc;
+  --c2: #557675;
+  --c3: #223344;
+  /*Timings*/
+  --quick: .5s;
+  --lazy: .95s;
+  /*ease timing*/
+  --bounceEase: cubic-bezier(0.175, 0.985, 0.5, 1.25);
+  /*misc settings*/
+  --borderRadius: 10px; }
+
+/*HELPERS*/
+/* line 16, ../../src/scss/variables.scss */
+.r {
+  border: 5px red solid; }
+
+/* line 19, ../../src/scss/variables.scss */
+.x {
+  display: none;
+  opacity: 0; }
+
+/* @include LINE(5px)*/
+/*MIXIN's*/
+/*STATIC GRID CONFIGURATIONS*/
+/* line 25, ../../src/scss/animations.scss */
+.defaultGrid {
+  grid-template-columns: 100% 0%;
+  grid-template-rows: 100% 0%; }
+
+/* line 28, ../../src/scss/animations.scss */
+.twoChatsGrid {
+  grid-template-columns: 70% 30%;
+  grid-template-rows: 100% 0%; }
+
+/* line 31, ../../src/scss/animations.scss */
+.threeChatsGrid {
+  grid-template-columns: 70% 30%;
+  grid-template-rows: 50% 50%; }
+
+/* line 34, ../../src/scss/animations.scss */
+.twoChatsExpandedGrid {
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 100% 0%; }
+
+/* line 37, ../../src/scss/animations.scss */
+.threeChatsExpandedGrid {
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%; }
+
+/*during the 2/3 window switch, change the grid-area*/
+/* line 42, ../../src/scss/animations.scss */
+.main_sidechat1_open {
+  animation: MCsidechat1OPEN 0.75s infinite;
+  /*animation-timing-function: ease-in;*/
+  animation-iteration-count: 1;
+  animation-timing-function: var(--bounceEase);
+  animation-fill-mode: forwards; }
+
+/* line 46, ../../src/scss/animations.scss */
+.main_sidechat1_openExpanded {
+  animation: MCsidechat1OPENexpanded 0.75s infinite;
+  /*animation-timing-function: ease-in;*/
+  animation-iteration-count: 1;
+  animation-timing-function: var(--bounceEase);
+  animation-fill-mode: forwards; }
+
+@keyframes MCsidechat1OPEN {
+  0% {
+    grid-template-columns: 100% 0%; }
+  100% {
+    grid-template-columns: 70% 30%; } }
+@keyframes MCsidechat1OPENexpanded {
+  0% {
+    grid-template-columns: 70% 30%; }
+  100% {
+    grid-template-columns: 50% 50%; } }
+/* line 66, ../../src/scss/animations.scss */
+.main_sidechat1_close {
+  animation: MCsidechat1OPEN 0.75s infinite;
+  /*animation-timing-function: ease-in;*/
+  animation-iteration-count: 1;
+  animation-timing-function: var(--bounceEase);
+  animation-fill-mode: forwards;
+  animation-direction: reverse; }
+
+/* line 71, ../../src/scss/animations.scss */
+.main_sidechat1_closeExpanded {
+  animation: MCsidechat1OPENexpanded 0.75s infinite;
+  /*animation-timing-function: ease-in;*/
+  animation-iteration-count: 1;
+  animation-timing-function: var(--bounceEase);
+  animation-fill-mode: forwards;
+  animation-direction: reverse; }
+
+/*---------SIDECHAT WINDOWS---------*/
+/* line 77, ../../src/scss/animations.scss */
+.sidechat1_sidechat2_open {
+  animation: sidechat1AndSidechat2OPEN 0.75s infinite;
+  /*animation-timing-function: ease-in;*/
+  animation-iteration-count: 1;
+  animation-timing-function: var(--bounceEase);
+  animation-fill-mode: forwards; }
+
+/* line 81, ../../src/scss/animations.scss */
+.sidechat1_sidechat2_openExpanded {
+  animation: sidechat1AndSidechat2OPENexpanded 0.75s infinite;
+  /*animation-timing-function: ease-in;*/
+  animation-iteration-count: 1;
+  animation-timing-function: var(--bounceEase);
+  animation-fill-mode: forwards; }
+
+@keyframes sidechat1AndSidechat2OPEN {
+  0% {
+    grid-template-columns: 70% 30%;
+    grid-template-rows: 100% 0%; }
+  100% {
+    grid-template-columns: 70% 30%;
+    grid-template-rows: 50% 50%; } }
+@keyframes sidechat1AndSidechat2OPENexpanded {
+  0% {
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100% 0%; }
+  100% {
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%; } }
+@keyframes sidechat1AndSidechat2CLOSEexpanded {
+  0% {
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100% 0%; }
+  100% {
+    grid-template-columns: 70% 30%;
+    grid-template-rows: 50% 50%; } }
+@keyframes sidechat2REPLACESidechat1 {
+  0% {
+    grid-template-columns: 70% 30%;
+    grid-template-rows: 50% 50%; }
+  100% {
+    grid-template-columns: 70% 30%;
+    grid-template-rows: 100% 0%; } }
+@keyframes sidechat2REPLACESidechat1Expanded {
+  0% {
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%; }
+  100% {
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100% 0%; } }
+/* line 136, ../../src/scss/animations.scss */
+.sidechat2_replace_sidechat1 {
+  animation: sidechat2REPLACESidechat1 0.75s infinite;
+  /*animation-timing-function: ease-in;*/
+  animation-iteration-count: 1;
+  animation-timing-function: var(--bounceEase);
+  animation-fill-mode: forwards; }
+
+/* line 140, ../../src/scss/animations.scss */
+.sidechat2_replace_sidechat1Expanded {
+  animation: sidechat2REPLACESidechat1Expanded 0.75s infinite;
+  /*animation-timing-function: ease-in;*/
+  animation-iteration-count: 1;
+  animation-timing-function: var(--bounceEase);
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out; }
+
+/* line 145, ../../src/scss/animations.scss */
+.sidechat1_sidechat2_close {
+  animation: sidechat1AndSidechat2OPEN 0.75s infinite;
+  /*animation-timing-function: ease-in;*/
+  animation-iteration-count: 1;
+  animation-timing-function: var(--bounceEase);
+  animation-fill-mode: forwards;
+  animation-direction: reverse; }
+
+/* line 150, ../../src/scss/animations.scss */
+.sidechat1_sidechat2_closeExpanded {
+  animation: sidechat1AndSidechat2CLOSEexpanded 0.75s infinite;
+  /*animation-timing-function: ease-in;*/
+  animation-iteration-count: 1;
+  animation-timing-function: var(--bounceEase);
+  animation-fill-mode: forwards;
+  /*animation-direction: reverse;*/ }
+
+/*.defaultGrid{
+.twoChatsGrid
+.threeChatsGrid
+.twoChatsExpandedGrid
+.threeChatsExpandedGrid*/

@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Slab&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merienda&display=swap");
+/* line 1, ../../src/scss/variables.scss */
+:root {
+  --navbarHeight: 70px;
+  /*Colors*/
+  --c1: #aabbcc;
+  --c2: #557675;
+  --c3: #223344;
+  /*Timings*/
+  --quick: .5s;
+  --lazy: .95s;
+  /*ease timing*/
+  --bounceEase: cubic-bezier(0.175, 0.985, 0.5, 1.25);
+  /*misc settings*/
+  --borderRadius: 10px; }
+
+/*HELPERS*/
+/* line 16, ../../src/scss/variables.scss */
+.r {
+  border: 5px red solid; }
+
+/* line 19, ../../src/scss/variables.scss */
+.x {
+  display: none;
+  opacity: 0; }
+
+/* @include LINE(5px)*/
+/*MIXIN's*/
+/* line 4, ../../src/scss/header.scss */
+.header {
+  display: flex;
+  align-items: center;
+  height: var(--navbarHeight);
+  /*background: var(--c2);*/
+  overflow: hidden;
+  background: #122;
+  border: 1px white solid; }
+  /* line 11, ../../src/scss/header.scss */
+  .header-title {
+    padding: 0px 20px;
+    background: transparent;
+    /*@include LINE(3px);*/ }
+    /* line 15, ../../src/scss/header.scss */
+    .header-title_a {
+      font-family: "Montserrat", sans-serif;
+      font-size: clamp(2.75rem, 3.5rem, 4rem);
+      color: var(--c1);
+      text-decoration: none;
+      opacity: .65;
+      transition: opacity var(--quick); }
+      /* line 22, ../../src/scss/header.scss */
+      .header-title_a:hover {
+        opacity: 1; }

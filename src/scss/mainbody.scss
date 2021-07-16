@@ -1,0 +1,17 @@
+@import "variables";
+@import "font";
+@import "prime-container";
+
+.mainbody{
+	display: flex;
+	flex-direction: column;
+	/*justify-content: center;*/
+	justify-content: space-evenly;
+	align-items: center;
+	flex:1;
+	/*height: 100%;*/
+	/*background: #333;*/
+	/*@include LINE(5px);*/
+	color: white;
+	overflow: hidden;
+}

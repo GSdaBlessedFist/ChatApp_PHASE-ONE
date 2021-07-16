@@ -1,0 +1,30 @@
+@import "variables";
+@import "font";
+@import "prime-container";
+@import "header";
+@import "mainbody";
+@import "modals";
+@import "chatarea";
+@import "message";
+@import "mainchat-grid";
+@import "sidechat-grid";
+@import "scroll-component";
+@import "animations";
+/*@import "signin-modal";
+@import "mainchat-message-area";
+@import "send-component";
+@import "sidechat-invite";*/
+@import "footer";
+
+* {
+   margin: 0;
+   margin: 0px;
+   box-sizing: border-box;
+   color: white;
+   @include siteFont;
+   /*background: #333;*/
+}
+html{height: 100%;}
+
+
+

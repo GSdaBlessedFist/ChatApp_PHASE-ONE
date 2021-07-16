@@ -1,0 +1,27 @@
+@import "variables";
+@import "font";
+
+.chat-area{
+	padding: 2px;
+	margin: 2px 0px;
+	/*@mixin grid($w, $h, $colQUOTES, $rQUOTES)*/
+	@include grid(100%,82vh,"100% 0%","100% 0%");
+	/*@include grid(100%,82vh,"100% 0%","100% 0%");*/
+	grid-template-areas: "mainchat sidechat1"
+						 "mainchat sidechat2";
+	/*@include LINE(5px,orange);*/
+	background: #333;
+	filter: saturate(5);
+	&_mainchat-window{
+		/*-->mainchat-grid.scss*/
+		grid-area : mainchat;
+	}
+	/*-->sidechat-grid.scss*/
+	&_sidechat1-window{
+		grid-area : sidechat1;
+	}
+	&_sidechat2-window{
+		/*-->sidechat-grid.scss*/
+		grid-area : sidechat2;
+	}
+}

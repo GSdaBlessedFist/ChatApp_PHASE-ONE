@@ -1,0 +1,160 @@
+@import "variables";
+@import "font";
+
+/*STATIC GRID CONFIGURATIONS*/
+@mixin mainchatGrid{
+	grid-template-columns: 100% 0%;
+	grid-template-rows: 100% 0%;
+}
+@mixin twoChatsGrid{
+	grid-template-columns: 70% 30%;
+	grid-template-rows: 100% 0%;
+}
+@mixin expandedTwoChatsGrid{
+	grid-template-columns: 50% 50%;
+	grid-template-rows: 100% 0%;
+}
+@mixin threeChatsGrid{
+	grid-template-columns: 70% 30%;
+	grid-template-rows: 50% 50%;	
+}
+@mixin expandedThreeChatsGrid{
+	grid-template-columns: 50% 50%;
+	grid-template-rows: 50% 50%;
+}
+.defaultGrid{
+	@include mainchatGrid;
+}
+.twoChatsGrid{
+	@include twoChatsGrid;
+}
+.threeChatsGrid{
+	@include threeChatsGrid;
+}
+.twoChatsExpandedGrid{
+	@include expandedTwoChatsGrid;
+}
+.threeChatsExpandedGrid{
+	@include expandedThreeChatsGrid;
+}
+
+/*during the 2/3 window switch, change the grid-area*/
+.main_sidechat1_open{
+	@include anime(MCsidechat1OPEN,.75s,1);
+	animation-fill-mode: forwards;
+}
+.main_sidechat1_openExpanded{
+	@include anime(MCsidechat1OPENexpanded,.75s,1);
+	animation-fill-mode: forwards;
+}
+@keyframes MCsidechat1OPEN{
+	0% {
+		grid-template-columns: 100% 0%;
+	}
+	100% {
+		grid-template-columns: 70% 30%;
+	}
+}
+@keyframes MCsidechat1OPENexpanded{
+	0% {
+		grid-template-columns: 70% 30%;
+	}
+	100% {
+		grid-template-columns: 50% 50%;
+	}
+}
+.main_sidechat1_close{
+	@include anime(MCsidechat1OPEN,.75s,1);
+	animation-fill-mode: forwards;
+	animation-direction: reverse;
+}
+.main_sidechat1_closeExpanded{
+	@include anime(MCsidechat1OPENexpanded,.75s,1);
+	animation-fill-mode: forwards;
+	animation-direction: reverse;
+}
+/*---------SIDECHAT WINDOWS---------*/
+.sidechat1_sidechat2_open{
+	@include anime(sidechat1AndSidechat2OPEN,.75s,1);
+	animation-fill-mode: forwards;
+}
+.sidechat1_sidechat2_openExpanded{
+	@include anime(sidechat1AndSidechat2OPENexpanded,.75s,1);
+	animation-fill-mode: forwards;
+
+}
+@keyframes sidechat1AndSidechat2OPEN{
+	0% {
+		grid-template-columns: 70% 30%;
+		grid-template-rows: 100% 0%;
+	}
+	100% {
+		grid-template-columns: 70% 30%;
+		grid-template-rows: 50% 50%;
+	}
+}
+@keyframes sidechat1AndSidechat2OPENexpanded{
+	0% {
+		grid-template-columns: 50% 50% ;
+		grid-template-rows: 100% 0%;
+	}
+	100% {
+		grid-template-columns: 50% 50% ;
+		grid-template-rows: 50% 50%;
+	}
+}
+@keyframes sidechat1AndSidechat2CLOSEexpanded{
+	0% {
+		grid-template-columns: 50% 50% ;
+		grid-template-rows: 100% 0%;
+	}
+	100% {
+		grid-template-columns: 70% 30% ;
+		grid-template-rows: 50% 50%;
+	}
+}
+@keyframes sidechat2REPLACESidechat1{
+	0% {
+		grid-template-columns: 70% 30%;
+		grid-template-rows: 50% 50%;
+	}
+	100% {
+		grid-template-columns: 70% 30%;
+		grid-template-rows: 100% 0%;
+	}
+}
+@keyframes sidechat2REPLACESidechat1Expanded{
+	0% {
+		grid-template-columns: 50% 50%;
+		grid-template-rows: 50% 50%;
+	}
+	100% {
+		grid-template-columns: 50% 50%;
+		grid-template-rows: 100% 0%;
+	}
+}
+.sidechat2_replace_sidechat1{
+	@include anime(sidechat2REPLACESidechat1,.75s,1);
+	animation-fill-mode: forwards;
+}
+.sidechat2_replace_sidechat1Expanded{
+	@include anime(sidechat2REPLACESidechat1Expanded,.75s,1);
+	animation-fill-mode: forwards;
+	animation-timing-function: ease-out;
+}
+.sidechat1_sidechat2_close{
+	@include anime(sidechat1AndSidechat2OPEN,.75s,1);
+	animation-fill-mode: forwards;
+	animation-direction: reverse;
+}
+.sidechat1_sidechat2_closeExpanded{
+	@include anime(sidechat1AndSidechat2CLOSEexpanded,.75s,1);
+	animation-fill-mode: forwards;
+	/*animation-direction: reverse;*/
+}
+
+/*.defaultGrid{
+.twoChatsGrid
+.threeChatsGrid
+.twoChatsExpandedGrid
+.threeChatsExpandedGrid*/

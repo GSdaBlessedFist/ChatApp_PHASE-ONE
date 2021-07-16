@@ -1,0 +1,58 @@
+/* line 1, ../../src/scss/variables.scss */
+:root {
+  --navbarHeight: 70px;
+  /*Colors*/
+  --c1: #aabbcc;
+  --c2: #557675;
+  --c3: #223344;
+  /*Timings*/
+  --quick: .5s;
+  --lazy: .95s;
+  /*ease timing*/
+  --bounceEase: cubic-bezier(0.175, 0.985, 0.5, 1.25);
+  /*misc settings*/
+  --borderRadius: 10px; }
+
+/*HELPERS*/
+/* line 16, ../../src/scss/variables.scss */
+.r {
+  border: 5px red solid; }
+
+/* line 19, ../../src/scss/variables.scss */
+.x {
+  display: none;
+  opacity: 0; }
+
+/* @include LINE(5px)*/
+/*MIXIN's*/
+/* line 3, ../../src/scss/message.scss */
+.messageObj {
+  /*display: block;*/
+  display: inline-block;
+  width: 55%;
+  text-align: left;
+  border: 1px white solid; }
+  /* line 9, ../../src/scss/message.scss */
+  .messageObj--screenname {
+    padding-left: 5px;
+    padding-right: 5px;
+    display: block;
+    font-size: 1.25rem;
+    text-decoration: none; }
+  /* line 16, ../../src/scss/message.scss */
+  .messageObj--message {
+    padding: 5px;
+    padding-left: 25px; }
+  /* line 20, ../../src/scss/message.scss */
+  .messageObj--image {
+    border-top: 2px white solid;
+    height: 500px;
+    background: #122;
+    border: 1px white solid; }
+
+/* line 26, ../../src/scss/message.scss */
+.others-message {
+  /*display:inline-block;*/
+  text-align: right;
+  position: relative;
+  right: -45%; }

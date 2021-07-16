@@ -1,0 +1,147 @@
+@import "variables";
+@import "font";
+
+.sidechat1{
+	@extend %generalSideGrid;
+}
+.sidechat2{
+	@extend %generalSideGrid;
+	background: white;
+}
+
+%generalSideGrid{
+	.sidechat-grid{
+	/*@include grid(100%,100%,"1fr","50px calc(77vh - 100px) 50px");*/
+	@include grid(100%,100%,"1fr","52px auto 52px");
+	grid-template-areas: "title"
+						 "messageArea"
+						 "sendComponent";
+	overflow: hidden;
+	&_title{
+		grid-area: title;
+		@include grid(100%,100%,"4vw auto 4vw","1fr");
+		grid-template-areas:"expand title close";
+		position: relative;
+		top: 0px;
+		text-align: center;
+		@include minorFont;
+		font-size: clamp(1.5rem,1.75rem,2rem);
+		color: white;
+		@include LINE(2px);
+		@at-root{
+			.sidechat-title{
+				&_expand-button{
+					grid-area: expand;
+					@include flexCenter;
+					@include flexCenter;
+					@include buttonize;
+					@include LINE(1px);
+					
+				}
+				&_text{
+					grid-area: title;
+					@include flexCenter;
+					@include LINE(1px);
+				}
+				&_close-button{
+					grid-area: close;
+					@include flexCenter;
+					@include buttonize;
+					@include LINE(1px);
+				}
+			}
+			
+		}
+
+	}
+	&_message-area{
+		grid-area: messageArea;
+        overflow-y:auto;
+		width: 100%;
+		@include LINE(2px);
+	}
+	&_send-component{
+		
+		grid-area: sendComponent;
+		display:flex;
+		justify-content: space-between;
+		align-items: center;
+		position: relative;
+		border-top: 2px orange solid;
+		bottom: 0px;
+		width: 100%;
+		/*height: 50px;*/
+		@include LINE(2px);
+		/*ADD THESE TO SIDECHAT TOO*/
+		&--send-button{
+			margin-left: 10px;
+			@include flexCenter;
+			width: 15%;
+			height: 75%;
+			border: 1px white solid;
+			text-decoration: none;
+			@include siteFont;
+			transition: all var(--quick);
+			&:hover{
+				background: var(--c1);
+			}
+		}
+		&--input{
+			width: 60%;
+			height: 75%;
+			margin-left: 5px;
+			margin-right: 5px;
+			padding-left: 10px;
+			padding-right: 10px;
+			color: #333;
+			font-size: 2vh;
+			@include accentFont;
+		}
+		&--features{
+			display: flex;
+			flex-direction: row;
+			justify-content:space-evenly;
+			align-items: center;
+			margin-right: 5px;
+			width: 20%;
+			height: 75%;
+			border: 1px white solid;
+			
+			&_emojis{
+				display: flex;
+				justify-content: center;
+				flex: 1;
+				width: auto;
+				height: 100%;
+				padding: 2px 0px;
+				@include buttonize;
+				@include LINE(.5px);
+			}
+			&_gifs{
+				display: flex;
+				justify-content: center;
+				flex: 1;
+				width: auto;
+				height: 100%;
+				padding: 2px 0px;
+				@include buttonize;
+				@include LINE(.5px);
+			}
+			&_images{
+				display: flex;
+				justify-content: center;
+				flex: 1;
+				width: auto;
+				height: 100%;
+				padding: 2px 0px;
+				@include buttonize;
+				@include LINE(.5px);
+			}
+		}
+	}
+	
+	/*@include LINE(0px,transparent);*/
+}
+}
+
+

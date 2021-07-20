@@ -1,24 +1,25 @@
 //signin.js;
-sessionStorage.clear(); 
+import{
+    mainchatInput,
+    mainchatMessageArea
+}from "./client-socket.js";
+
+sessionStorage.clear();
 const a = alert;
 const p = console.log;
 const url = "http://localhost:3400";
 // const socket = io.connect(url);
 const socket = io();
-document.title += "" ;
+document.title += "";
 var clientNumber;
-
-
-const signinModal= document.getElementById("signin-modal"),
-      siginModalScreen= document.getElementById("sigin-modal-screen"),
-	  signinModalMessageBox= document.getElementById("signin-modal-message-box"),
-	  signinModalMessageBoxInput= document.getElementById("signin-modal-message-box--input");	  
-      
-
-
+const signinModal = document.getElementById("signin-modal"),
+    siginModalScreen = document.getElementById("sigin-modal-screen"),
+    signinModalMessageBox = document.getElementById("signin-modal-message-box"),
+    signinModalMessageBoxInput = document.getElementById("signin-modal-message-box--input");
 const styles = getComputedStyle(document.documentElement);
 const lazyFadeOutTime = styles.getPropertyValue('--lazy').slice(0, -1);
-const quickFadeOutTime = styles.getPropertyValue('--quick').slice(0,-1);
+const quickFadeOutTime = styles.getPropertyValue('--quick').slice(0, -1);
+var si = true;
 
 ////////////// SETTING DEFAULT SCREENNAME //////////////
 const randomDefaultScreenNames = ["TypieTech", "Cesars_Salad", "Lazarus_Lu",
@@ -29,71 +30,65 @@ const randomNameSelection = function() {
     return randomDefaultScreenNames[Math.floor(Math.random() * randomDefaultScreenNames.length)];
 }
 const noSpaces = function(str) {
-    let x = str.replace(/ /g, "_").trim();
-    return x;
-}
-// signinModalMessageBoxInput.placeholder = randomNameSelection();
-// const screenname = noSpaces(signinModalMessageBoxInput.value) || signinModalMessageBoxInput.placeholder;
-
+        let x = str.replace(/ /g, "_").trim();
+        return x;
+    }
+    // signinModalMessageBoxInput.placeholder = randomNameSelection();
+    // const screenname = noSpaces(signinModalMessageBoxInput.value) || signinModalMessageBoxInput.placeholder;
 signinModalMessageBoxInput.placeholder = randomNameSelection();
 var screenname = signinModalMessageBoxInput.placeholder;
-
-signinModalMessageBoxInput.addEventListener('change',(e)=>{
+signinModalMessageBoxInput.addEventListener('change', (e) => {
     e.preventDefault();
     screenname = noSpaces(e.target.value)
     return null;
 });
-
-
-
-
 //////////////////////// COMMs ////////////////////////
 document.body.addEventListener("keyup", (e) => {
-	
-	if (e.keyCode === 13 && signinModal.style.opacity!==0) {
-    // if (e.keyCode === 13 && signinModal.style.display=="block") {
-        p("TEST")
-        socket.emit("add-client", {
-            screenname,
-            socketinfo: socket.id
-
-        })
-        p("%cUsername registered","color:green;font-size:1.25em");
-        gsap.to(signinModalMessageBox,{opacity:0,duration:lazyFadeOutTime});
-        gsap.to(siginModalScreen,{opacity:0,duration:lazyFadeOutTime,delay:.45});
-
-        /////////// CLOSES SIGNIN MODAL ///////////
-        setTimeout(()=>{
-            signinModal.classList.add("x");
-            signinModal.remove();
-        },lazyFadeOutTime)
+    //IF ENTER IS PRESSED
+    if (e.keyCode === 13) {
+        if(si == true){
+            socket.emit("add-client", {
+                screenname,
+                socketinfo: socket.id
+            })
+            p("%cUsername registered", "color:green;font-size:1.25em");
+            gsap.to(signinModalMessageBox, {
+                opacity: 0,
+                duration: lazyFadeOutTime
+            });
+            gsap.to(siginModalScreen, {
+                opacity: 0,
+                duration: lazyFadeOutTime,
+                delay: .45
+            });
+            /////////// CLOSES SIGNIN MODAL ///////////
+            setTimeout(() => {
+                signinModal.classList.add("x");
+                signinModal.remove();
+                si = false;
+            }, lazyFadeOutTime)
+        }
+        if(si==false){
+            p("Signin modal is closed.")
+            socket.emit('message.chat', {
+                // screenname: noSpaces(mdlScreenNameInput.value) || mdlScreenNameInput.placeholder,
+                // message: scMessageInput.value,
+                // action: "a message was sent"
+                screenname,
+                message: mainchatInput.value,
+                image: null
+            })
+            mainchatInput.value = "";        
+        }
     }
-    // document.title += " - "+screenname; <--THIS ONE FINAL
-    document.title = screenname +" : "+socket.id; //<--testING
-    document.getElementById("mainchat-input").autofocus=true;
-    
 })
-        
-
-        
-    // document.title += " - "+screenname; <--THIS ONE FINAL
-    document.title = screenname +" : "+socket.id; //<--testING
-    document.getElementById("mainchat-input").autofocus=true;
-    
-
-
-
 
 export {
-	url,
-	socket,
-	styles,
+    url,
+    socket,
+    styles,
     noSpaces,
     screenname,
     lazyFadeOutTime,
     quickFadeOutTime
 }
-
-
-
-

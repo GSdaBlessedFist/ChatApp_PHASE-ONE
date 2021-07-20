@@ -7,11 +7,9 @@ import {
     lazyFadeOutTime,
     quickFadeOutTime
 } from "./signin-modal.js";
-
 const p = console.log;
 const a = alert;
 // localStorage.clear();
-
 const chatArea = document.getElementById("chat-area"),
     mainchatExpand = document.getElementById("mainchat-expand"),
     mainchatSendButton = document.getElementById("mainchat-sendButton"),
@@ -19,16 +17,11 @@ const chatArea = document.getElementById("chat-area"),
     mainchatMessageArea = document.getElementById("mainchat-messageArea");
 mainchatExpand.style.display = "none";
 mainchatMessageArea.innerHTML = "";
-
+mainchatMessageArea.scrollTop = mainchatMessageArea.scrollHeight;
 var sidechat1Socket;
-
-////////////////////EVENT HANDLERS/////////////////////////
-if (document.addEventListener) {
-    p('please')
-}
+////////////////////EVENT HANDLERS////////////////////////
 document.addEventListener('click', (e) => {
     var target = e.target;
-
     if (target.matches("#mainchat-sendButton")) {
         e.preventDefault();
         if (mainchatInput.value.length > 3) {
@@ -43,23 +36,30 @@ document.addEventListener('click', (e) => {
         }
         mainchatInput.value = "";
     } //#mainchat-sendButton
-
-
 })
 
-
 socket.on('chat', (data) => {
-        mainchatMessageArea.innerHTML += `
+    function updateScroll(){
+        mainchatMessageArea.scrollTop = mainchatMessageArea.scrollHeight;
+    }
+    function dateFormat(){
+        var date = new Date();
+        return `${date.toLocaleTimeString()}`;
+    }
+    mainchatMessageArea.innerHTML += `
         <div class="messageObj ${socket.id==data.socketInfo?"":"others-message"}">
-             <div class="messageObj--screenname"><div>${data.screenname}</div></a>
-             <div class="messageObj--message">${data.message}</div>
-             <div class="messageObj--image x">${data.image}</div>
+                <div class="messageObj--screenname"><div>${data.screenname}
+                    <span class="messageObj--message-date" id="message-date">${dateFormat()}</span>
+                </div>
+                <div class="messageObj--message">${data.message}</div>
+                <div class="messageObj--image x">${data.image}</div>
         </div>
     `;
+    updateScroll();
         // var links = Array.from(document.getElementsByClassName("messageObj--screenname"));
-        
+})
 
-
-        
-    })
-    ///////////////////////////////////////////////////////
+export{
+    mainchatInput,
+    mainchatMessageArea
+}

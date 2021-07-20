@@ -1,9 +1,9 @@
 :root{
-	--navbarHeight: 70px; //also footer height
-	/*Colors*/
-	--c1: #aabbcc;
-	--c2: #557675;
-	--c3: #223344;
+    --navbarHeight: 70px; //also footer height
+    /*Colors*/
+    --c1: #aabbcc;
+    --c2: #557675;
+    --c3: #223344;
   /*Timings*/
     --quick: .5s;
     --lazy: .95s;
@@ -21,8 +21,6 @@
    opacity: 0;
 }
 /* @include LINE(5px)*/
-
-
 /*MIXIN's*/
 @mixin grid($w, $h, $colQUOTES, $rQUOTES) {
   display: grid;
@@ -31,36 +29,30 @@
   grid-template-columns: unquote($colQUOTES);
   grid-template-rows: unquote($rQUOTES);
 }
-
 @mixin center {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
 @mixin lrcenter {
     position: relative;
     left: 50%;
     transform: translate(-50%);
 }
-
 @mixin tbcenter {
     position: absolute;
     top: 50%;
     transform: translate(-50%);
 }
-
 @mixin buttonHoverShadow{
     box-shadow: 5px 8px 15px -1px rgba(0,0,0,0.75); 
 }
-
 @mixin flexCenter{
   display: flex;
   justify-content:center;
   align-items: center;
 }
-
 @mixin buttonize{
     text-decoration: none;
     @include siteFont;
@@ -69,12 +61,10 @@
         background: var(--c1);
     }
 }
-
 @mixin LINE($weight,$color:white){
-  background: #122;
+  background: #001;
   border: $weight $color solid;
 }
-
 @mixin anime($name,$time,$reps){
   //*insert keyframe name >$name*//
   animation: $name $time infinite;

@@ -28,7 +28,7 @@
 
 /* @include LINE(5px)*/
 /*MIXIN's*/
-/* line 4, ../../src/scss/mainchat-grid.scss */
+/* line 3, ../../src/scss/mainchat-grid.scss */
 .mainchat-grid {
   /*@include grid(100%,100%,"1fr","50px calc(77vh - 100px) 50px");*/
   /*@include grid(100%,100%,"1fr","auto 70vh 50px");*/
@@ -40,7 +40,7 @@
   grid-template-areas: "title" "messageArea" "sendComponent";
   overflow: hidden;
   /*@include LINE(0px,transparent);*/ }
-  /* line 12, ../../src/scss/mainchat-grid.scss */
+  /* line 11, ../../src/scss/mainchat-grid.scss */
   .mainchat-grid_title {
     grid-area: title;
     display: grid;
@@ -55,9 +55,9 @@
     font-family: "Roboto Slab", serif;
     font-size: clamp(1.5rem, 1.75rem, 2rem);
     color: white;
-    background: #122;
+    background: #001;
     border: 2px white solid; }
-    /* line 25, ../../src/scss/mainchat-grid.scss */
+    /* line 24, ../../src/scss/mainchat-grid.scss */
     .mainchat-title_hidden-button {
       grid-area: hidden;
       display: flex;
@@ -66,20 +66,20 @@
       text-decoration: none;
       font-family: "Montserrat", sans-serif;
       transition: all var(--quick);
-      background: #122;
+      background: #001;
       border: 1px white solid; }
-      /* line 68, ../../src/scss/variables.scss */
+      /* line 60, ../../src/scss/variables.scss */
       .mainchat-title_hidden-button:hover {
         background: var(--c1); }
-    /* line 32, ../../src/scss/mainchat-grid.scss */
+    /* line 30, ../../src/scss/mainchat-grid.scss */
     .mainchat-title_text {
       grid-area: title;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #122;
+      background: #001;
       border: 1px white solid; }
-    /* line 37, ../../src/scss/mainchat-grid.scss */
+    /* line 35, ../../src/scss/mainchat-grid.scss */
     .mainchat-title_expand-button {
       grid-area: expand;
       display: flex;
@@ -88,19 +88,19 @@
       text-decoration: none;
       font-family: "Montserrat", sans-serif;
       transition: all var(--quick);
-      background: #122;
+      background: #001;
       border: 1px white solid; }
-      /* line 68, ../../src/scss/variables.scss */
+      /* line 60, ../../src/scss/variables.scss */
       .mainchat-title_expand-button:hover {
         background: var(--c1); }
-  /* line 46, ../../src/scss/mainchat-grid.scss */
+  /* line 44, ../../src/scss/mainchat-grid.scss */
   .mainchat-grid_message-area {
     grid-area: messageArea;
     overflow-y: auto;
     width: 100%;
-    background: #122;
+    background: #001;
     border: 2px white solid; }
-  /* line 52, ../../src/scss/mainchat-grid.scss */
+  /* line 50, ../../src/scss/mainchat-grid.scss */
   .mainchat-grid_send-component {
     grid-area: sendComponent;
     display: flex;
@@ -111,9 +111,9 @@
     bottom: 0px;
     width: 100%;
     /*height: 50px;*/
-    background: #122;
+    background: #001;
     border: 2px white solid; }
-    /* line 63, ../../src/scss/mainchat-grid.scss */
+    /* line 61, ../../src/scss/mainchat-grid.scss */
     .mainchat-grid_send-component--send-button {
       margin-left: 10px;
       display: flex;
@@ -125,10 +125,10 @@
       text-decoration: none;
       font-family: "Montserrat", sans-serif;
       transition: all var(--quick); }
-      /* line 72, ../../src/scss/mainchat-grid.scss */
+      /* line 70, ../../src/scss/mainchat-grid.scss */
       .mainchat-grid_send-component--send-button:hover {
         background: var(--c1); }
-    /* line 76, ../../src/scss/mainchat-grid.scss */
+    /* line 74, ../../src/scss/mainchat-grid.scss */
     .mainchat-grid_send-component--input {
       width: 60%;
       height: 75%;
@@ -139,7 +139,7 @@
       color: #333;
       font-size: 3vh;
       font-family: "Merienda", cursive; }
-    /* line 87, ../../src/scss/mainchat-grid.scss */
+    /* line 85, ../../src/scss/mainchat-grid.scss */
     .mainchat-grid_send-component--features {
       display: flex;
       flex-direction: row;
@@ -149,7 +149,7 @@
       width: 20%;
       height: 75%;
       border: 1px white solid; }
-      /* line 97, ../../src/scss/mainchat-grid.scss */
+      /* line 94, ../../src/scss/mainchat-grid.scss */
       .mainchat-grid_send-component--features_emojis {
         display: flex;
         justify-content: center;
@@ -159,12 +159,12 @@
         text-decoration: none;
         font-family: "Montserrat", sans-serif;
         transition: all var(--quick);
-        background: #122;
+        background: #001;
         border: 0.5px white solid; }
-        /* line 68, ../../src/scss/variables.scss */
+        /* line 60, ../../src/scss/variables.scss */
         .mainchat-grid_send-component--features_emojis:hover {
           background: var(--c1); }
-      /* line 106, ../../src/scss/mainchat-grid.scss */
+      /* line 103, ../../src/scss/mainchat-grid.scss */
       .mainchat-grid_send-component--features_gifs {
         display: flex;
         justify-content: center;
@@ -174,12 +174,12 @@
         text-decoration: none;
         font-family: "Montserrat", sans-serif;
         transition: all var(--quick);
-        background: #122;
+        background: #001;
         border: 0.5px white solid; }
-        /* line 68, ../../src/scss/variables.scss */
+        /* line 60, ../../src/scss/variables.scss */
         .mainchat-grid_send-component--features_gifs:hover {
           background: var(--c1); }
-      /* line 115, ../../src/scss/mainchat-grid.scss */
+      /* line 112, ../../src/scss/mainchat-grid.scss */
       .mainchat-grid_send-component--features_images {
         display: flex;
         justify-content: center;
@@ -189,12 +189,12 @@
         text-decoration: none;
         font-family: "Montserrat", sans-serif;
         transition: all var(--quick);
-        background: #122;
+        background: #001;
         border: 0.5px white solid; }
-        /* line 68, ../../src/scss/variables.scss */
+        /* line 60, ../../src/scss/variables.scss */
         .mainchat-grid_send-component--features_images:hover {
           background: var(--c1); }
-      /* line 124, ../../src/scss/mainchat-grid.scss */
+      /* line 121, ../../src/scss/mainchat-grid.scss */
       .mainchat-grid_send-component--features_darkmode {
         display: flex;
         justify-content: center;
@@ -204,8 +204,8 @@
         text-decoration: none;
         font-family: "Montserrat", sans-serif;
         transition: all var(--quick);
-        background: #122;
+        background: #001;
         border: 0.5px white solid; }
-        /* line 68, ../../src/scss/variables.scss */
+        /* line 60, ../../src/scss/variables.scss */
         .mainchat-grid_send-component--features_darkmode:hover {
           background: var(--c1); }

@@ -33,24 +33,31 @@
   text-align: left;
   border: 1px white solid; }
   /* line 9, ../../src/scss/message.scss */
+  .messageObj--message-date {
+    display: inline;
+    position: relative;
+    font-size: .85rem;
+    font-weight: 900;
+    opacity: .5; }
+  /* line 16, ../../src/scss/message.scss */
   .messageObj--screenname {
     padding-left: 5px;
     padding-right: 5px;
     display: block;
     font-size: 1.25rem;
     text-decoration: none; }
-  /* line 16, ../../src/scss/message.scss */
+  /* line 23, ../../src/scss/message.scss */
   .messageObj--message {
     padding: 5px;
     padding-left: 25px; }
-  /* line 20, ../../src/scss/message.scss */
+  /* line 27, ../../src/scss/message.scss */
   .messageObj--image {
     border-top: 2px white solid;
     height: 500px;
-    background: #122;
+    background: #001;
     border: 1px white solid; }
 
-/* line 26, ../../src/scss/message.scss */
+/* line 33, ../../src/scss/message.scss */
 .others-message {
   /*display:inline-block;*/
   text-align: right;

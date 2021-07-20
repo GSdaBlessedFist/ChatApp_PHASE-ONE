@@ -1,6 +1,5 @@
 @import "variables";
 @import "font";
-
 .mainchat-grid{
 	/*@include grid(100%,100%,"1fr","50px calc(77vh - 100px) 50px");*/
 	/*@include grid(100%,100%,"1fr","auto 70vh 50px");*/
@@ -27,7 +26,6 @@
 					@include flexCenter;
 					@include buttonize;
 					@include LINE(1px);
-					
 				}
 				&_text{
 					grid-area: title;
@@ -93,7 +91,6 @@
 			width: 20%;
 			height: 75%;
 			border: 1px white solid;
-			
 			&_emojis{
 				display: flex;
 				justify-content: center;
@@ -132,7 +129,5 @@
 			}
 		}
 	}
-	
 	/*@include LINE(0px,transparent);*/
 }
-

@@ -31,7 +31,7 @@
 /* line 4, ../../src/scss/prime-container.scss */
 .prime-container {
   /*background: var(--c3);*/
-  background: green;
+  background: #001;
   display: grid;
   width: 100%;
   height: 100vh;
@@ -42,19 +42,19 @@
   /*-->header.scss*/
   /*-->mainbody.scss*/
   /*-->footer.scss*/ }
-  /* line 13, ../../src/scss/prime-container.scss */
+  /* line 12, ../../src/scss/prime-container.scss */
   .prime-container_header {
     grid-area: header;
     width: 100%;
-    background: #122;
+    background: #001;
     border: 3px white solid; }
-  /* line 18, ../../src/scss/prime-container.scss */
+  /* line 17, ../../src/scss/prime-container.scss */
   .prime-container_mainbody {
     grid-area: mainbody;
     width: 100%; }
-  /* line 22, ../../src/scss/prime-container.scss */
+  /* line 21, ../../src/scss/prime-container.scss */
   .prime-container_footer {
     grid-area: footer;
-    background: #122;
+    background: #001;
     border: 3px white solid;
     width: 100%; }

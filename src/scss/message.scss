@@ -6,6 +6,13 @@
     width: 55%;
     text-align:  left;
     border: 1px white solid;
+  &--message-date{
+    display: inline;
+    position: relative;
+    font-size: .85rem;
+    font-weight: 900;
+    opacity: .5;
+  }
   &--screenname{
     padding-left: 5px;
     padding-right: 5px;

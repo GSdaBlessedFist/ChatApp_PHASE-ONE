@@ -2,10 +2,10 @@
 @import "font";
 
 .chat-area{
-	padding: 2px;
+	padding: 0px;
 	margin: 2px 0px;
 	/*@mixin grid($w, $h, $colQUOTES, $rQUOTES)*/
-	@include grid(100%,82vh,"100% 0%","100% 0%");
+	@include grid(100%,83vh,"100% 0%","100% 0%");
 	/*@include grid(100%,82vh,"100% 0%","100% 0%");*/
 	grid-template-areas: "mainchat sidechat1"
 						 "mainchat sidechat2";

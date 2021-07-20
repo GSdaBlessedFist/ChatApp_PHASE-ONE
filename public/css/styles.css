@@ -10,18 +10,19 @@
   --c3: #223344;
   /*Timings*/
   --quick: .5s;
-  --lazy: .95s;
+  /*--lazy: .95s;*/
+  --lazy: .75s;
   /*ease timing*/
   --bounceEase: cubic-bezier(0.175, 0.985, 0.5, 1.25);
   /*misc settings*/
   --borderRadius: 10px; }
 
 /*HELPERS*/
-/* line 16, ../../src/scss/variables.scss */
+/* line 17, ../../src/scss/variables.scss */
 .r {
   border: 5px red solid; }
 
-/* line 19, ../../src/scss/variables.scss */
+/* line 20, ../../src/scss/variables.scss */
 .x {
   display: none;
   opacity: 0; }
@@ -112,8 +113,8 @@
   top: var(--navbarHeight);
   left: 0;
   width: 100%;
-  height: 82.5vh;
-  opacity: .75;
+  height: 83.15vh;
+  opacity: .85;
   background: #001;
   border: 2px white solid; }
 
@@ -167,12 +168,12 @@
 
 /* line 4, ../../src/scss/chatarea.scss */
 .chat-area {
-  padding: 2px;
+  padding: 0px;
   margin: 2px 0px;
   /*@mixin grid($w, $h, $colQUOTES, $rQUOTES)*/
   display: grid;
   width: 100%;
-  height: 82vh;
+  height: 83vh;
   grid-template-columns: 100% 0%;
   grid-template-rows: 100% 0%;
   /*@include grid(100%,82vh,"100% 0%","100% 0%");*/
@@ -199,38 +200,70 @@
   display: inline-block;
   width: 55%;
   text-align: left;
-  border: 1px white solid; }
+  border-bottom: 3px rgba(255, 255, 255, 0.075) solid; }
   /* line 9, ../../src/scss/message.scss */
   .messageObj--message-date {
     display: inline;
     position: relative;
     font-size: .85rem;
+    font-style: italic;
     font-weight: 900;
     opacity: .5; }
-  /* line 16, ../../src/scss/message.scss */
+  /* line 17, ../../src/scss/message.scss */
   .messageObj--screenname {
     padding-left: 5px;
     padding-right: 5px;
     display: block;
     font-size: 1.25rem;
     text-decoration: none; }
-  /* line 23, ../../src/scss/message.scss */
+  /* line 24, ../../src/scss/message.scss */
   .messageObj--message {
     padding: 5px;
     padding-left: 25px; }
-  /* line 27, ../../src/scss/message.scss */
+  /* line 28, ../../src/scss/message.scss */
   .messageObj--image {
     border-top: 2px white solid;
     height: 500px;
     background: #001;
     border: 1px white solid; }
 
-/* line 33, ../../src/scss/message.scss */
+/* line 35, ../../src/scss/message.scss */
 .others-message {
   /*display:inline-block;*/
   text-align: right;
   position: relative;
   right: -45%; }
+
+/* line 4, ../../src/scss/features.scss */
+.features-container {
+  display: grid;
+  display: grid;
+  width: 100%;
+  height: 95%;
+  grid-template-columns: 1fr;
+  grid-template-rows: 75% repeat(2,1fr);
+  grid-template-areas: "menu" "searchbar" "buttons";
+  border: 3px white solid;
+  background: #001;
+  border: 2.5px white solid; }
+  /* line 13, ../../src/scss/features.scss */
+  .features-container--buttons {
+    grid-area: buttons;
+    display: grid;
+    width: 100%;
+    height: 75px;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: 1fr;
+    grid-template-areas: "emoji gifs photos dark"; }
+    /* line 17, ../../src/scss/features.scss */
+    .features-container--buttons__emojis {
+      grid-area: emoji; }
+  /* line 21, ../../src/scss/features.scss */
+  .features-container--search-bar {
+    grid-area: searchbar; }
+  /* line 24, ../../src/scss/features.scss */
+  .features-container--menu {
+    grid-area: menu; }
 
 /* line 3, ../../src/scss/mainchat-grid.scss */
 .mainchat-grid {
@@ -272,7 +305,7 @@
       transition: all var(--quick);
       background: #001;
       border: 1px white solid; }
-      /* line 60, ../../src/scss/variables.scss */
+      /* line 61, ../../src/scss/variables.scss */
       .mainchat-title_hidden-button:hover {
         background: var(--c1); }
     /* line 30, ../../src/scss/mainchat-grid.scss */
@@ -294,7 +327,7 @@
       transition: all var(--quick);
       background: #001;
       border: 1px white solid; }
-      /* line 60, ../../src/scss/variables.scss */
+      /* line 61, ../../src/scss/variables.scss */
       .mainchat-title_expand-button:hover {
         background: var(--c1); }
   /* line 44, ../../src/scss/mainchat-grid.scss */
@@ -316,7 +349,8 @@
     width: 100%;
     /*height: 50px;*/
     background: #001;
-    border: 2px white solid; }
+    border: 2px white solid;
+    /*features.scss*/ }
     /* line 61, ../../src/scss/mainchat-grid.scss */
     .mainchat-grid_send-component--send-button {
       margin-left: 10px;
@@ -336,83 +370,31 @@
     .mainchat-grid_send-component--input {
       width: 60%;
       height: 75%;
+      resize: none;
       margin-left: 2px;
       margin-right: 2px;
       padding-left: 10px;
       padding-right: 10px;
       color: #333;
-      font-size: 3vh;
-      font-family: "Merienda", cursive; }
-    /* line 85, ../../src/scss/mainchat-grid.scss */
+      font-size: 2.85vh;
+      font-family: "Roboto Slab", serif; }
+      /* line 85, ../../src/scss/mainchat-grid.scss */
+      .mainchat-grid_send-component--input::-webkit-input-placeholder {
+        /* Chrome/Opera/Safari */
+        color: var(--c1);
+        text-align: left;
+        opacity: .50; }
+      /* line 90, ../../src/scss/mainchat-grid.scss */
+      .mainchat-grid_send-component--input::-moz-placeholder {
+        /* Firefox 19+ */
+        color: var(--c1);
+        text-align: left;
+        opacity: .50; }
+    /* line 96, ../../src/scss/mainchat-grid.scss */
     .mainchat-grid_send-component--features {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-evenly;
-      align-items: center;
-      margin-right: 10px;
       width: 20%;
       height: 75%;
-      border: 1px white solid; }
-      /* line 94, ../../src/scss/mainchat-grid.scss */
-      .mainchat-grid_send-component--features_emojis {
-        display: flex;
-        justify-content: center;
-        width: 25%;
-        height: 100%;
-        padding: 2px 0px;
-        text-decoration: none;
-        font-family: "Montserrat", sans-serif;
-        transition: all var(--quick);
-        background: #001;
-        border: 0.5px white solid; }
-        /* line 60, ../../src/scss/variables.scss */
-        .mainchat-grid_send-component--features_emojis:hover {
-          background: var(--c1); }
-      /* line 103, ../../src/scss/mainchat-grid.scss */
-      .mainchat-grid_send-component--features_gifs {
-        display: flex;
-        justify-content: center;
-        width: 25%;
-        height: 100%;
-        padding: 2px 0px;
-        text-decoration: none;
-        font-family: "Montserrat", sans-serif;
-        transition: all var(--quick);
-        background: #001;
-        border: 0.5px white solid; }
-        /* line 60, ../../src/scss/variables.scss */
-        .mainchat-grid_send-component--features_gifs:hover {
-          background: var(--c1); }
-      /* line 112, ../../src/scss/mainchat-grid.scss */
-      .mainchat-grid_send-component--features_images {
-        display: flex;
-        justify-content: center;
-        width: 25%;
-        height: 100%;
-        padding: 2px 0px;
-        text-decoration: none;
-        font-family: "Montserrat", sans-serif;
-        transition: all var(--quick);
-        background: #001;
-        border: 0.5px white solid; }
-        /* line 60, ../../src/scss/variables.scss */
-        .mainchat-grid_send-component--features_images:hover {
-          background: var(--c1); }
-      /* line 121, ../../src/scss/mainchat-grid.scss */
-      .mainchat-grid_send-component--features_darkmode {
-        display: flex;
-        justify-content: center;
-        width: 25%;
-        height: 100%;
-        padding: 2px 0px;
-        text-decoration: none;
-        font-family: "Montserrat", sans-serif;
-        transition: all var(--quick);
-        background: #001;
-        border: 0.5px white solid; }
-        /* line 60, ../../src/scss/variables.scss */
-        .mainchat-grid_send-component--features_darkmode:hover {
-          background: var(--c1); }
+      margin-right: 10px; }
 
 /*@import "sidechat-grid";*/
 /* width */
@@ -626,7 +608,7 @@
     .footer-link:hover {
       opacity: 1; }
 
-/* line 19, ../../src/scss/styles.scss */
+/* line 20, ../../src/scss/styles.scss */
 * {
   margin: 0;
   margin: 0px;
@@ -635,6 +617,6 @@
   font-family: "Montserrat", sans-serif;
   /*background: #333;*/ }
 
-/* line 27, ../../src/scss/styles.scss */
+/* line 28, ../../src/scss/styles.scss */
 html {
   height: 100%; }

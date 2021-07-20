@@ -13,13 +13,15 @@ const socket = io();
 document.title += "";
 var clientNumber;
 const signinModal = document.getElementById("signin-modal"),
-    siginModalScreen = document.getElementById("sigin-modal-screen"),
-    signinModalMessageBox = document.getElementById("signin-modal-message-box"),
-    signinModalMessageBoxInput = document.getElementById("signin-modal-message-box--input");
+      siginModalScreen = document.getElementById("sigin-modal-screen"),
+      signinModalMessageBox = document.getElementById("signin-modal-message-box"),
+      signinModalMessageBoxInput = document.getElementById("signin-modal-message-box--input"),
+      mainchatGridSendComponent= document.getElementById("mainchat-grid_send-component");
 const styles = getComputedStyle(document.documentElement);
 const lazyFadeOutTime = styles.getPropertyValue('--lazy').slice(0, -1);
 const quickFadeOutTime = styles.getPropertyValue('--quick').slice(0, -1);
 var si = true;
+
 
 ////////////// SETTING DEFAULT SCREENNAME //////////////
 const randomDefaultScreenNames = ["TypieTech", "Cesars_Salad", "Lazarus_Lu",
@@ -42,6 +44,7 @@ signinModalMessageBoxInput.addEventListener('change', (e) => {
     screenname = noSpaces(e.target.value)
     return null;
 });
+
 //////////////////////// COMMs ////////////////////////
 document.body.addEventListener("keyup", (e) => {
     //IF ENTER IS PRESSED
@@ -67,17 +70,18 @@ document.body.addEventListener("keyup", (e) => {
                 signinModal.remove();
                 si = false;
             }, lazyFadeOutTime)
+            document.title= `ChatApp : ${screenname}`
         }
         if(si==false){
             p("Signin modal is closed.")
-            socket.emit('message.chat', {
-                // screenname: noSpaces(mdlScreenNameInput.value) || mdlScreenNameInput.placeholder,
-                // message: scMessageInput.value,
-                // action: "a message was sent"
-                screenname,
-                message: mainchatInput.value,
-                image: null
-            })
+            if (mainchatInput.value.length > 3) {
+                socket.emit('message.chat', {
+                    screenname,
+                    message: mainchatInput.value,
+                    image: null
+                })
+            }
+            mainchatInput.autofocus = true;
             mainchatInput.value = "";        
         }
     }
@@ -90,5 +94,6 @@ export {
     noSpaces,
     screenname,
     lazyFadeOutTime,
-    quickFadeOutTime
+    quickFadeOutTime,
+    si //<signin interface on/off
 }

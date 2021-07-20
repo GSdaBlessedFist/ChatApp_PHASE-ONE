@@ -1,0 +1,29 @@
+@import "variables";
+@import "font";
+
+.features-container {
+  display: grid;
+  @include grid(100%, 95%, "1fr", "75% repeat(2,1fr)");
+  grid-template-areas:
+    "menu"
+    "searchbar"
+    "buttons";
+  border: 3px white solid;
+  @include LINE(2.5px);
+  &--buttons {
+  	grid-area: buttons;
+  	@include grid(100%,75px,"repeat(4,1fr)","1fr");
+  	grid-template-areas: "emoji gifs photos dark";
+  	&__emojis{
+  		grid-area: emoji;
+  	}
+  }	
+  &--search-bar{
+  	grid-area: searchbar;
+  }
+  &--menu{
+  	grid-area: menu;
+  }
+}
+
+

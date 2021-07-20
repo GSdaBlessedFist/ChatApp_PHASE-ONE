@@ -5,11 +5,12 @@ import {
     noSpaces,
     screenname,
     lazyFadeOutTime,
-    quickFadeOutTime
+    quickFadeOutTime,
+    si
 } from "./signin-modal.js";
 const p = console.log;
 const a = alert;
-// localStorage.clear();
+
 const chatArea = document.getElementById("chat-area"),
     mainchatExpand = document.getElementById("mainchat-expand"),
     mainchatSendButton = document.getElementById("mainchat-sendButton"),
@@ -26,15 +27,13 @@ document.addEventListener('click', (e) => {
         e.preventDefault();
         if (mainchatInput.value.length > 3) {
             socket.emit('message.chat', {
-                // screenname: noSpaces(mdlScreenNameInput.value) || mdlScreenNameInput.placeholder,
-                // message: scMessageInput.value,
-                // action: "a message was sent"
                 screenname,
                 message: mainchatInput.value,
                 image: null
             })
         }
         mainchatInput.value = "";
+        mainchatInput.autoResize();
     } //#mainchat-sendButton
 })
 

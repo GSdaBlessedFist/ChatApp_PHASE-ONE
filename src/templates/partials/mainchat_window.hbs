@@ -11,17 +11,15 @@
 	<div class="mainchat-grid_message-area" id="mainchat-messageArea"></div>
 
 
-	<div class="mainchat-grid_send-component">
+	<div class="mainchat-grid_send-component" id="mainchat-grid_send-component">
 		<!-- ADD THESE TO SIDECHAT TOO -->
 		<a href="#" class="mainchat-grid_send-component--send-button" id="mainchat-sendButton"><div >SEND</div></a>
-		<input type="text" class="mainchat-grid_send-component--input" id="mainchat-input" placeholder="send a message..." autofocus/>
-		<div class="mainchat-grid_send-component--features">
-			<a href="#" class="mainchat-grid_send-component--features_emojis"><div >X</div></a>
-			<a href="#" class="mainchat-grid_send-component--features_gifs"><div >X</div></a>
-			<a href="#" class="mainchat-grid_send-component--features_images"><div >X</div></a>
-			<a href="#" class="mainchat-grid_send-component--features_darkmode"><div >X</div></a>
-			
-		</div>
+		<input type="text" class="mainchat-grid_send-component--input" id="mainchat-input" placeholder="send a message" autofocus />
+
+		<!-- <textarea class="mainchat-grid_send-component--input" id="mainchat-input" placeholder="send a message . . . [shift + enter = new 
+		line]" autofocus></textarea>  -->
+
+		<div class="mainchat-grid_send-component--features">{{>features}}</div>
 	</div>
 </div>
 

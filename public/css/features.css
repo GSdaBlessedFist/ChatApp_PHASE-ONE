@@ -29,33 +29,33 @@
 
 /* @include LINE(5px)*/
 /*MIXIN's*/
-/* line 4, ../../src/scss/prime-container.scss */
-.prime-container {
-  /*background: var(--c3);*/
-  background: #001;
+/* line 4, ../../src/scss/features.scss */
+.features-container {
+  display: grid;
   display: grid;
   width: 100%;
-  height: 100vh;
+  height: 95%;
   grid-template-columns: 1fr;
-  grid-template-rows: 70px auto 70px;
-  grid-template-areas: "header" "mainbody" "footer";
-  overflow: hidden;
-  /*-->header.scss*/
-  /*-->mainbody.scss*/
-  /*-->footer.scss*/ }
-  /* line 12, ../../src/scss/prime-container.scss */
-  .prime-container_header {
-    grid-area: header;
+  grid-template-rows: 75% repeat(2,1fr);
+  grid-template-areas: "menu" "searchbar" "buttons";
+  border: 3px white solid;
+  background: #001;
+  border: 2.5px white solid; }
+  /* line 13, ../../src/scss/features.scss */
+  .features-container--buttons {
+    grid-area: buttons;
+    display: grid;
     width: 100%;
-    background: #001;
-    border: 3px white solid; }
-  /* line 17, ../../src/scss/prime-container.scss */
-  .prime-container_mainbody {
-    grid-area: mainbody;
-    width: 100%; }
-  /* line 21, ../../src/scss/prime-container.scss */
-  .prime-container_footer {
-    grid-area: footer;
-    background: #001;
-    border: 3px white solid;
-    width: 100%; }
+    height: 75px;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: 1fr;
+    grid-template-areas: "emoji gifs photos dark"; }
+    /* line 17, ../../src/scss/features.scss */
+    .features-container--buttons__emojis {
+      grid-area: emoji; }
+  /* line 21, ../../src/scss/features.scss */
+  .features-container--search-bar {
+    grid-area: searchbar; }
+  /* line 24, ../../src/scss/features.scss */
+  .features-container--menu {
+    grid-area: menu; }

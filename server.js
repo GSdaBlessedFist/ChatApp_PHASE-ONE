@@ -12,7 +12,7 @@ const server = app.listen(port, () => {
   console.log(`Red to go on port ${port}!`)
   console.log("empty room")
 });
-const nameofApp = "ChatApp_PHASE:ONE";
+const nameofApp = "ChatApp_phase I";
 app.use(express.static('public'));
 // app.use(morgan('tiny'));
 // Express config

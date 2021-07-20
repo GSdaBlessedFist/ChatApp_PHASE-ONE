@@ -10,18 +10,19 @@
   --c3: #223344;
   /*Timings*/
   --quick: .5s;
-  --lazy: .95s;
+  /*--lazy: .95s;*/
+  --lazy: .75s;
   /*ease timing*/
   --bounceEase: cubic-bezier(0.175, 0.985, 0.5, 1.25);
   /*misc settings*/
   --borderRadius: 10px; }
 
 /*HELPERS*/
-/* line 16, ../../src/scss/variables.scss */
+/* line 17, ../../src/scss/variables.scss */
 .r {
   border: 5px red solid; }
 
-/* line 19, ../../src/scss/variables.scss */
+/* line 20, ../../src/scss/variables.scss */
 .x {
   display: none;
   opacity: 0; }
@@ -68,7 +69,7 @@
       transition: all var(--quick);
       background: #001;
       border: 1px white solid; }
-      /* line 60, ../../src/scss/variables.scss */
+      /* line 61, ../../src/scss/variables.scss */
       .mainchat-title_hidden-button:hover {
         background: var(--c1); }
     /* line 30, ../../src/scss/mainchat-grid.scss */
@@ -90,7 +91,7 @@
       transition: all var(--quick);
       background: #001;
       border: 1px white solid; }
-      /* line 60, ../../src/scss/variables.scss */
+      /* line 61, ../../src/scss/variables.scss */
       .mainchat-title_expand-button:hover {
         background: var(--c1); }
   /* line 44, ../../src/scss/mainchat-grid.scss */
@@ -112,7 +113,8 @@
     width: 100%;
     /*height: 50px;*/
     background: #001;
-    border: 2px white solid; }
+    border: 2px white solid;
+    /*features.scss*/ }
     /* line 61, ../../src/scss/mainchat-grid.scss */
     .mainchat-grid_send-component--send-button {
       margin-left: 10px;
@@ -132,80 +134,28 @@
     .mainchat-grid_send-component--input {
       width: 60%;
       height: 75%;
+      resize: none;
       margin-left: 2px;
       margin-right: 2px;
       padding-left: 10px;
       padding-right: 10px;
       color: #333;
-      font-size: 3vh;
-      font-family: "Merienda", cursive; }
-    /* line 85, ../../src/scss/mainchat-grid.scss */
+      font-size: 2.85vh;
+      font-family: "Roboto Slab", serif; }
+      /* line 85, ../../src/scss/mainchat-grid.scss */
+      .mainchat-grid_send-component--input::-webkit-input-placeholder {
+        /* Chrome/Opera/Safari */
+        color: var(--c1);
+        text-align: left;
+        opacity: .50; }
+      /* line 90, ../../src/scss/mainchat-grid.scss */
+      .mainchat-grid_send-component--input::-moz-placeholder {
+        /* Firefox 19+ */
+        color: var(--c1);
+        text-align: left;
+        opacity: .50; }
+    /* line 96, ../../src/scss/mainchat-grid.scss */
     .mainchat-grid_send-component--features {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-evenly;
-      align-items: center;
-      margin-right: 10px;
       width: 20%;
       height: 75%;
-      border: 1px white solid; }
-      /* line 94, ../../src/scss/mainchat-grid.scss */
-      .mainchat-grid_send-component--features_emojis {
-        display: flex;
-        justify-content: center;
-        width: 25%;
-        height: 100%;
-        padding: 2px 0px;
-        text-decoration: none;
-        font-family: "Montserrat", sans-serif;
-        transition: all var(--quick);
-        background: #001;
-        border: 0.5px white solid; }
-        /* line 60, ../../src/scss/variables.scss */
-        .mainchat-grid_send-component--features_emojis:hover {
-          background: var(--c1); }
-      /* line 103, ../../src/scss/mainchat-grid.scss */
-      .mainchat-grid_send-component--features_gifs {
-        display: flex;
-        justify-content: center;
-        width: 25%;
-        height: 100%;
-        padding: 2px 0px;
-        text-decoration: none;
-        font-family: "Montserrat", sans-serif;
-        transition: all var(--quick);
-        background: #001;
-        border: 0.5px white solid; }
-        /* line 60, ../../src/scss/variables.scss */
-        .mainchat-grid_send-component--features_gifs:hover {
-          background: var(--c1); }
-      /* line 112, ../../src/scss/mainchat-grid.scss */
-      .mainchat-grid_send-component--features_images {
-        display: flex;
-        justify-content: center;
-        width: 25%;
-        height: 100%;
-        padding: 2px 0px;
-        text-decoration: none;
-        font-family: "Montserrat", sans-serif;
-        transition: all var(--quick);
-        background: #001;
-        border: 0.5px white solid; }
-        /* line 60, ../../src/scss/variables.scss */
-        .mainchat-grid_send-component--features_images:hover {
-          background: var(--c1); }
-      /* line 121, ../../src/scss/mainchat-grid.scss */
-      .mainchat-grid_send-component--features_darkmode {
-        display: flex;
-        justify-content: center;
-        width: 25%;
-        height: 100%;
-        padding: 2px 0px;
-        text-decoration: none;
-        font-family: "Montserrat", sans-serif;
-        transition: all var(--quick);
-        background: #001;
-        border: 0.5px white solid; }
-        /* line 60, ../../src/scss/variables.scss */
-        .mainchat-grid_send-component--features_darkmode:hover {
-          background: var(--c1); }
+      margin-right: 10px; }

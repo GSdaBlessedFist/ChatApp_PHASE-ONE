@@ -5,11 +5,12 @@
     display:inline-block;
     width: 55%;
     text-align:  left;
-    border: 1px white solid;
+    border-bottom: 3px hsla(0,100%,100%,0.075) solid;
   &--message-date{
     display: inline;
     position: relative;
     font-size: .85rem;
+    font-style: italic;
     font-weight: 900;
     opacity: .5;
   }
@@ -25,6 +26,7 @@
     padding-left: 25px;
   }
   &--image{
+    
     border-top: 2px white solid;
     height: 500px;
     @include LINE(1px);

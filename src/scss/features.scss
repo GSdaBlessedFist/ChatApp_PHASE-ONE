@@ -2,14 +2,10 @@
 @import "font";
 
 .features-container {
-  @mixin buttonize {
-    width: 100%;
-    height: 85%;
-    
-    @include LINE(1px);
-  }
+  
   margin:  6px auto;
-  @include grid(100%, 75%, "1fr", "75% repeat(2,1fr)");
+  /*@include grid(100%, 75%, "1fr", "75% repeat(2,1fr)");*/
+  @include grid(100%, 75%, "1fr", "repeat(3,fr)");
   grid-template-areas:
     "menu"
     "searchbar"
@@ -20,32 +16,41 @@
   &--buttons {
     grid-area: buttons;
     position: relative;
-    @include grid(100%, 50px, "repeat(4,1fr)", "1fr");
+    top: -40px;
+    @include grid(100%, 35px, "repeat(4,1fr)", "1fr");
     grid-template-areas: "emoji gifs images dark";
-    @include LINE(1px);
+    /*@include LINE(1px);*/
+    border: 2px red solid;
     &__emojis {
       position: relative;
       grid-area: emoji;
       @include buttonize;
+      @include LINE(1px);
     }
     &__gifs{
       position: relative;
     	grid-area: gifs;
       @include buttonize;
+      @include LINE(1px);
     }
     &__images{
       position: relative;
     	grid-area: images;
       @include buttonize;
+      @include LINE(1px);
     }
     &__darkmode{
       position: relative;
     	grid-area: dark;
       @include buttonize;
+      @include LINE(1px);
     }
   }
   &--search-bar {
     grid-area: searchbar;
+    position: relative;
+    top: -50px;
+    @include LINE(1px);
   }
   &--menu {
     grid-area: menu;

@@ -32,62 +32,84 @@
 /* line 4, ../../src/scss/features.scss */
 .features-container {
   margin: 6px auto;
+  /*@include grid(100%, 75%, "1fr", "75% repeat(2,1fr)");*/
   display: grid;
   width: 100%;
   height: 75%;
   grid-template-columns: 1fr;
-  grid-template-rows: 75% repeat(2,1fr);
+  grid-template-rows: repeat(3,fr);
   grid-template-areas: "menu" "searchbar" "buttons";
   border: 3px white solid;
   background: #001;
   border: 2.5px white solid; }
-  /* line 20, ../../src/scss/features.scss */
+  /* line 16, ../../src/scss/features.scss */
   .features-container--buttons {
     grid-area: buttons;
     position: relative;
+    top: -40px;
     display: grid;
     width: 100%;
-    height: 50px;
+    height: 35px;
     grid-template-columns: repeat(4,1fr);
     grid-template-rows: 1fr;
     grid-template-areas: "emoji gifs images dark";
-    background: #001;
-    border: 1px white solid; }
-    /* line 26, ../../src/scss/features.scss */
+    /*@include LINE(1px);*/
+    border: 2px red solid; }
+    /* line 24, ../../src/scss/features.scss */
     .features-container--buttons__emojis {
       position: relative;
       grid-area: emoji;
-      width: 100%;
-      height: 85%;
+      text-decoration: none;
+      font-family: "Montserrat", sans-serif;
+      transition: all var(--quick);
       background: #001;
       border: 1px white solid; }
-    /* line 31, ../../src/scss/features.scss */
+      /* line 61, ../../src/scss/variables.scss */
+      .features-container--buttons__emojis:hover {
+        background: var(--c1); }
+    /* line 30, ../../src/scss/features.scss */
     .features-container--buttons__gifs {
       position: relative;
       grid-area: gifs;
-      width: 100%;
-      height: 85%;
+      text-decoration: none;
+      font-family: "Montserrat", sans-serif;
+      transition: all var(--quick);
       background: #001;
       border: 1px white solid; }
+      /* line 61, ../../src/scss/variables.scss */
+      .features-container--buttons__gifs:hover {
+        background: var(--c1); }
     /* line 36, ../../src/scss/features.scss */
     .features-container--buttons__images {
       position: relative;
       grid-area: images;
-      width: 100%;
-      height: 85%;
+      text-decoration: none;
+      font-family: "Montserrat", sans-serif;
+      transition: all var(--quick);
       background: #001;
       border: 1px white solid; }
-    /* line 41, ../../src/scss/features.scss */
+      /* line 61, ../../src/scss/variables.scss */
+      .features-container--buttons__images:hover {
+        background: var(--c1); }
+    /* line 42, ../../src/scss/features.scss */
     .features-container--buttons__darkmode {
       position: relative;
       grid-area: dark;
-      width: 100%;
-      height: 85%;
+      text-decoration: none;
+      font-family: "Montserrat", sans-serif;
+      transition: all var(--quick);
       background: #001;
       border: 1px white solid; }
-  /* line 47, ../../src/scss/features.scss */
+      /* line 61, ../../src/scss/variables.scss */
+      .features-container--buttons__darkmode:hover {
+        background: var(--c1); }
+  /* line 49, ../../src/scss/features.scss */
   .features-container--search-bar {
-    grid-area: searchbar; }
-  /* line 50, ../../src/scss/features.scss */
+    grid-area: searchbar;
+    position: relative;
+    top: -50px;
+    background: #001;
+    border: 1px white solid; }
+  /* line 55, ../../src/scss/features.scss */
   .features-container--menu {
     grid-area: menu; }

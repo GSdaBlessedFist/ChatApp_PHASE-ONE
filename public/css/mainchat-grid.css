@@ -1,42 +1,169 @@
-/*
-Error: Invalid CSS after "}": expected "}", was ""
-        on line 113 of /home/guyshifty/Desktop/PHASE-One_Chatnimity/./src/scss/mainchat-grid.scss
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Slab&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merienda&display=swap");
+/* line 1, ../../src/scss/variables.scss */
+:root {
+  --navbarHeight: 70px;
+  /*Colors*/
+  --c1: #aabbcc;
+  --c2: #557675;
+  --c3: #223344;
+  /*Timings*/
+  --quick: .5s;
+  /*--lazy: .95s;*/
+  --lazy: .75s;
+  /*ease timing*/
+  --bounceEase: cubic-bezier(0.175, 0.985, 0.5, 1.25);
+  /*misc settings*/
+  --borderRadius: 10px; }
 
-108: 			border: 3px red solid;
-109: 			
-110: 	}
-111: 	/*@include LINE(0px,transparent);*\/
-112: }
+/*HELPERS*/
+/* line 17, ../../src/scss/variables.scss */
+.r {
+  border: 5px red solid; }
 
-Backtrace:
-/home/guyshifty/Desktop/PHASE-One_Chatnimity/./src/scss/mainchat-grid.scss:113
-/var/lib/gems/2.7.0/gems/sass-3.4.25/lib/sass/scss/parser.rb:1207:in `expected'
-/var/lib/gems/2.7.0/gems/sass-3.4.25/lib/sass/scss/parser.rb:1137:in `expected'
-/var/lib/gems/2.7.0/gems/sass-3.4.25/lib/sass/scss/parser.rb:1132:in `tok!'
-/var/lib/gems/2.7.0/gems/sass-3.4.25/lib/sass/scss/parser.rb:667:in `block'
-/var/lib/gems/2.7.0/gems/sass-3.4.25/lib/sass/scss/parser.rb:658:in `ruleset'
-/var/lib/gems/2.7.0/gems/sass-3.4.25/lib/sass/scss/parser.rb:684:in `block_child'
-/var/lib/gems/2.7.0/gems/sass-3.4.25/lib/sass/scss/parser.rb:677:in `block_contents'
-/var/lib/gems/2.7.0/gems/sass-3.4.25/lib/sass/scss/parser.rb:125:in `stylesheet'
-/var/lib/gems/2.7.0/gems/sass-3.4.25/lib/sass/scss/parser.rb:41:in `parse'
-/var/lib/gems/2.7.0/gems/sass-3.4.25/lib/sass/engine.rb:409:in `_to_tree'
-/var/lib/gems/2.7.0/gems/sass-3.4.25/lib/sass/engine.rb:284:in `render'
-/var/lib/gems/2.7.0/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:17:in `block in render'
-/var/lib/gems/2.7.0/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:29:in `with_import_scope'
-/var/lib/gems/2.7.0/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:16:in `render'
-/var/lib/gems/2.7.0/gems/sass-3.4.25/lib/sass/plugin/compiler.rb:494:in `update_stylesheet'
-/var/lib/gems/2.7.0/gems/sass-3.4.25/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-/var/lib/gems/2.7.0/gems/sass-3.4.25/lib/sass/plugin/compiler.rb:209:in `each'
-/var/lib/gems/2.7.0/gems/sass-3.4.25/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-/var/lib/gems/2.7.0/gems/sass-3.4.25/lib/sass/plugin/compiler.rb:473:in `on_file_changed'
-/var/lib/gems/2.7.0/gems/sass-3.4.25/lib/sass/plugin/compiler.rb:331:in `block in watch'
-/var/lib/gems/2.7.0/gems/sass-3.4.25/vendor/listen/lib/listen/listener.rb:252:in `on_change'
-/var/lib/gems/2.7.0/gems/sass-3.4.25/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
-/var/lib/gems/2.7.0/gems/sass-3.4.25/vendor/listen/lib/listen/adapter.rb:254:in `report_changes'
-/var/lib/gems/2.7.0/gems/sass-3.4.25/vendor/listen/lib/listen/adapter.rb:323:in `poll_changed_directories'
-/var/lib/gems/2.7.0/gems/sass-3.4.25/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Invalid CSS after \"}\": expected \"}\", was \"\"\A         on line 113 of /home/guyshifty/Desktop/PHASE-One_Chatnimity/./src/scss/mainchat-grid.scss\A \A 108: 			border: 3px red solid;\A 109: 			\A 110: 	}\A 111: 	/*@include LINE(0px,transparent);*/\A 112: }"; }
+/* line 20, ../../src/scss/variables.scss */
+.x {
+  display: none;
+  opacity: 0; }
+
+/* @include LINE(5px)*/
+/*MIXIN's*/
+/* line 3, ../../src/scss/mainchat-grid.scss */
+.mainchat-grid {
+  /*@include grid(100%,100%,"1fr","50px calc(77vh - 100px) 50px");*/
+  /*@include grid(100%,100%,"1fr","auto 70vh 50px");*/
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: 1fr;
+  grid-template-rows: 8% 84% 8%;
+  grid-template-areas: "title" "messageArea" "sendComponent";
+  overflow: hidden;
+  /*///////////////////////////////////////////////////////*/
+  /*///////////////////////////////////////////////////////*/
+  /*///////////////////////////////////////////////////////*/
+  /*@include LINE(0px,transparent);*/ }
+  /* line 12, ../../src/scss/mainchat-grid.scss */
+  .mainchat-grid_title {
+    grid-area: title;
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 4vw auto 4vw;
+    grid-template-rows: 1fr;
+    grid-template-areas: "hidden title expand";
+    position: relative;
+    top: 0px;
+    text-align: center;
+    font-family: "Roboto Slab", serif;
+    font-size: clamp(1.5rem, 1.75rem, 2rem);
+    color: white;
+    background: #001;
+    border: 2px white solid; }
+    /* line 25, ../../src/scss/mainchat-grid.scss */
+    .mainchat-title_hidden-button {
+      grid-area: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      font-family: "Montserrat", sans-serif;
+      transition: all var(--quick);
+      background: #001;
+      border: 1px white solid; }
+      /* line 61, ../../src/scss/variables.scss */
+      .mainchat-title_hidden-button:hover {
+        background: var(--c1); }
+    /* line 31, ../../src/scss/mainchat-grid.scss */
+    .mainchat-title_text {
+      grid-area: title;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #001;
+      border: 1px white solid; }
+    /* line 36, ../../src/scss/mainchat-grid.scss */
+    .mainchat-title_expand-button {
+      grid-area: expand;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      font-family: "Montserrat", sans-serif;
+      transition: all var(--quick);
+      background: #001;
+      border: 1px white solid; }
+      /* line 61, ../../src/scss/variables.scss */
+      .mainchat-title_expand-button:hover {
+        background: var(--c1); }
+  /* line 45, ../../src/scss/mainchat-grid.scss */
+  .mainchat-grid_message-area {
+    grid-area: messageArea;
+    overflow-y: auto;
+    width: 100%;
+    background: #001;
+    border: 2px white solid; }
+  /* line 54, ../../src/scss/mainchat-grid.scss */
+  .mainchat-grid_send-component {
+    grid-area: sendComponent;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 20% 55% 25%;
+    grid-template-areas: "sendButton input features";
+    position: relative;
+    border-top: 2px orange solid;
+    bottom: 0px;
+    width: 100%;
+    /*height: 50px;*/
+    background: #001;
+    border: 2px white solid; }
+    /* line 66, ../../src/scss/mainchat-grid.scss */
+    .mainchat-grid_send-component--send-button {
+      grid-area: sendButton;
+      margin: 5px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 90%;
+      height: 75%;
+      border: 1px white solid;
+      text-decoration: none;
+      font-family: "Montserrat", sans-serif;
+      transition: all var(--quick); }
+      /* line 76, ../../src/scss/mainchat-grid.scss */
+      .mainchat-grid_send-component--send-button:hover {
+        background: var(--c1); }
+    /* line 80, ../../src/scss/mainchat-grid.scss */
+    .mainchat-grid_send-component--input {
+      grid-area: input;
+      width: 95%;
+      height: 75%;
+      margin: 5px auto;
+      padding-left: 10px;
+      padding-right: 10px;
+      color: #333;
+      font-size: 2.85vh;
+      font-family: "Roboto Slab", serif; }
+      /* line 90, ../../src/scss/mainchat-grid.scss */
+      .mainchat-grid_send-component--input::-webkit-input-placeholder {
+        /* Chrome/Opera/Safari */
+        color: var(--c1);
+        text-align: left;
+        opacity: 0.5; }
+      /* line 96, ../../src/scss/mainchat-grid.scss */
+      .mainchat-grid_send-component--input::-moz-placeholder {
+        /* Firefox 19+ */
+        color: var(--c1);
+        text-align: left;
+        opacity: 0.5; }
+    /* line 103, ../../src/scss/mainchat-grid.scss */
+    .mainchat-grid_send-component--features {
+      width: 90%;
+      grid-area: features;
+      display: grid;
+      grid-template-columns: 50% 25% 25%;
+      grid-template-areas: "searchinput emojis gifs";
+      height: 75%;
+      margin: 5px auto;
+      border: 3px red solid; }

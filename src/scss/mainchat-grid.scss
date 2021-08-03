@@ -65,7 +65,7 @@
 		@include LINE(2px);
 		&--send-button {
 			grid-area: sendButton;
-			margin: 0px auto;
+			margin: 5px auto;
 			@include flexCenter;
 			width: 90%;
 			height: 75%;
@@ -81,7 +81,7 @@
 			grid-area: input;
 			width: 95%;
 			height: 75%;
-			margin: 0px auto;
+			margin: 5px auto;
 			padding-left: 10px;
 			padding-right: 10px;
 			color: #333;
@@ -103,10 +103,14 @@
 		&--features {
 			width: 90%;
 			grid-area: features;
-			height: 100%;
-			margin: 0px auto;
+			display:grid;
+			grid-template-columns: 50% 25% 25%;
+			grid-template-areas: "searchinput emojis gifs";
+			height: 75%;
+			margin: 5px auto;
 			border: 3px red solid;
 			
+		}
 	}
 	/*@include LINE(0px,transparent);*/
 }

@@ -144,20 +144,22 @@
       padding-right: 10px;
       color: #333;
       font-size: 2.85vh;
+      border: 0px red solid;
+      border-radius: 5px;
       font-family: "Roboto Slab", serif; }
-      /* line 90, ../../src/scss/mainchat-grid.scss */
+      /* line 92, ../../src/scss/mainchat-grid.scss */
       .mainchat-grid_send-component--input::-webkit-input-placeholder {
         /* Chrome/Opera/Safari */
         color: var(--c1);
         text-align: left;
         opacity: 0.5; }
-      /* line 96, ../../src/scss/mainchat-grid.scss */
+      /* line 98, ../../src/scss/mainchat-grid.scss */
       .mainchat-grid_send-component--input::-moz-placeholder {
         /* Firefox 19+ */
         color: var(--c1);
         text-align: left;
         opacity: 0.5; }
-    /* line 103, ../../src/scss/mainchat-grid.scss */
+    /* line 105, ../../src/scss/mainchat-grid.scss */
     .mainchat-grid_send-component--features {
       width: 90%;
       grid-area: features;
@@ -166,4 +168,55 @@
       grid-template-areas: "searchinput emojis gifs";
       height: 75%;
       margin: 5px auto;
-      border: 3px red solid; }
+      /*border: 3px red solid;<--helper*/ }
+      /* line 114, ../../src/scss/mainchat-grid.scss */
+      .mainchat-grid_send-component--features__search-input {
+        border-top-left-radius: 150px;
+        border-bottom-left-radius: 150px;
+        padding-left: 15px;
+        padding-right: 15px;
+        font-size: 1.25rem;
+        font-family: "Roboto Slab", serif;
+        color: var(--c3); }
+        /* line 122, ../../src/scss/mainchat-grid.scss */
+        .mainchat-grid_send-component--features__search-input::-webkit-input-placeholder {
+          /* Chrome/Opera/Safari */
+          color: var(--c1);
+          text-align: center;
+          opacity: 0.5; }
+        /* line 128, ../../src/scss/mainchat-grid.scss */
+        .mainchat-grid_send-component--features__search-input::-moz-placeholder {
+          /* Firefox 19+ */
+          color: var(--c1);
+          text-align: center;
+          opacity: 0.5; }
+      /* line 135, ../../src/scss/mainchat-grid.scss */
+      .mainchat-grid_send-component--features__emojis-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        font-family: "Montserrat", sans-serif;
+        transition: all var(--quick);
+        border: 1px white solid; }
+        /* line 61, ../../src/scss/variables.scss */
+        .mainchat-grid_send-component--features__emojis-button:hover {
+          background: var(--c1); }
+        /* line 141, ../../src/scss/mainchat-grid.scss */
+        .mainchat-grid_send-component--features__emojis-button > span {
+          user-select: none;
+          transform: scale(1.75); }
+      /* line 146, ../../src/scss/mainchat-grid.scss */
+      .mainchat-grid_send-component--features__gifs-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        font-family: "Montserrat", sans-serif;
+        transition: all var(--quick);
+        border: 1px white solid;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px; }
+        /* line 61, ../../src/scss/variables.scss */
+        .mainchat-grid_send-component--features__gifs-button:hover {
+          background: var(--c1); }

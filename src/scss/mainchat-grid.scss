@@ -86,6 +86,8 @@
 			padding-right: 10px;
 			color: #333;
 			font-size: 2.85vh;
+			border: 0px red solid;
+			border-radius: 5px;
 			@include minorFont;
 			&::-webkit-input-placeholder {
 				/* Chrome/Opera/Safari */
@@ -108,8 +110,48 @@
 			grid-template-areas: "searchinput emojis gifs";
 			height: 75%;
 			margin: 5px auto;
-			border: 3px red solid;
-			
+			/*border: 3px red solid;<--helper*/
+			&__search-input{
+				border-top-left-radius: 150px;
+				border-bottom-left-radius: 150px;
+				padding-left: 15px;
+				padding-right: 15px;
+				font-size: 1.25rem;
+				@include minorFont;
+				color: var(--c3);
+				&::-webkit-input-placeholder {
+				/* Chrome/Opera/Safari */
+					color: var(--c1);
+					text-align: center;
+					opacity: 0.5;
+				}
+				&::-moz-placeholder {
+					/* Firefox 19+ */
+					color: var(--c1);
+					text-align: center;
+					opacity: 0.5;
+				}
+			}
+			&__emojis-button{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				@include buttonize;
+				border: 1px white solid;
+				&>span{
+					user-select: none; 
+					transform: scale(1.75);
+				}
+			}
+			&__gifs-button{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				@include buttonize;
+				border: 1px white solid;
+				border-top-right-radius: 10px;
+				border-bottom-right-radius: 10px;
+			}
 		}
 	}
 	/*@include LINE(0px,transparent);*/

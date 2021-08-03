@@ -12,17 +12,20 @@ const server = app.listen(port, () => {
   console.log(`Red to go on port ${port}!`)
   console.log("empty room")
 });
-const nameofApp = "ChatApp_phase I";
+const nameofApp = "Chatnimity";
 app.use(express.static('public'));
 // app.use(morgan('tiny'));
+
 // Express config
 const publicDirectory = path.join(__dirname, "./public");
 const viewsPath = path.join(__dirname, "./src/templates/views");
 const partialsPath = path.join(__dirname, "./src/templates/partials");
+
 // Handlebars engine and views location
 app.set("view engine", "hbs");
 app.set("views", viewsPath);
 hbs.registerPartials(partialsPath);
+
 app.get("/", (req, res) => {
   res.render("index", {
     title: nameofApp,

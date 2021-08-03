@@ -1,17 +1,17 @@
 //signin.js;
-import{
-    mainchatInput,
-    mainchatMessageArea
-}from "./client-socket.js";
+localStorage.clear();
+import{mainchatInput, mainchatMessageArea}from "./client-socket.js";
+import{randoEmojiIcon}from "./emojiGif.js";
 
-sessionStorage.clear();
+// sessionStorage.clear();
 const a = alert;
 const p = console.log;
 const url = "http://localhost:3400";
-// const socket = io.connect(url);
+
 const socket = io();
 document.title += "";
 var clientNumber;
+
 const signinModal = document.getElementById("signin-modal"),
       siginModalScreen = document.getElementById("sigin-modal-screen"),
       signinModalMessageBox = document.getElementById("signin-modal-message-box"),
@@ -21,7 +21,7 @@ const styles = getComputedStyle(document.documentElement);
 const lazyFadeOutTime = styles.getPropertyValue('--lazy').slice(0, -1);
 const quickFadeOutTime = styles.getPropertyValue('--quick').slice(0, -1);
 var si = true;
-
+randoEmojiIcon();//<--EMOJI BUTTON
 
 ////////////// SETTING DEFAULT SCREENNAME //////////////
 const randomDefaultScreenNames = ["TypieTech", "Cesars_Salad", "Lazarus_Lu",

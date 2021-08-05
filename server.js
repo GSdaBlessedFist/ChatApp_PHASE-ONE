@@ -7,6 +7,10 @@ const path = require('path');
 // const server = require('http').Server(app);
 const socket = require('socket.io');
 const chalk = require('chalk');
+
+const gifAPIkey = "wd4XV1dNHMoJGtWlJ6r6n8xPpCZ1h6XC";
+
+
 const port = process.env.PORT || 3400;
 const server = app.listen(port, () => {
   console.log(`Red to go on port ${port}!`)
@@ -29,7 +33,8 @@ hbs.registerPartials(partialsPath);
 app.get("/", (req, res) => {
   res.render("index", {
     title: nameofApp,
-    clientname: "clientName"
+    clientname: "clientName",
+    gifAPIkey: gifAPIkey
   })
 })
 const io = socket(server);

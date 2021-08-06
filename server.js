@@ -4,12 +4,14 @@ const app = express();
 const hbs = require('hbs');
 const morgan = require('morgan');
 const path = require('path');
-// const server = require('http').Server(app);
+
 const socket = require('socket.io');
 const chalk = require('chalk');
 
+// https://emoji-api.com
+//https://developers.giphy.com/
+const emojiAPIkey = "7c1a8fdba401fa696373ff67213109114f05e1f1";
 const gifAPIkey = "wd4XV1dNHMoJGtWlJ6r6n8xPpCZ1h6XC";
-
 
 const port = process.env.PORT || 3400;
 const server = app.listen(port, () => {
@@ -34,7 +36,8 @@ app.get("/", (req, res) => {
   res.render("index", {
     title: nameofApp,
     clientname: "clientName",
-    gifAPIkey: gifAPIkey
+    gifAPIkey: gifAPIkey,
+    emojiAPIkey: emojiAPIkey
   })
 })
 const io = socket(server);

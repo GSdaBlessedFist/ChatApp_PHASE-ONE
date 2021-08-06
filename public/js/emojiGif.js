@@ -1,11 +1,14 @@
 //emojiGif.js
 // gifAPIkey(global)
+// emojiAPIkey(global)
 import {mainchatMessageArea} from './client-socket.js';
 const p = console.log;
 const searchInput = document.getElementById("features-search-input");
 const EmojiButton = document.getElementById("features-emojis-button");
 const GifButton = document.getElementById("features-gifs-button");
 const featuresMenu = document.getElementById("features-menu");
+const ratings = ["g","pg","pg-13","r"];
+var ratingSelected = ratings[3];
 const emojiIconList = [
 	"&#128169",
 	"&#129324",
@@ -18,56 +21,40 @@ function randoEmojiIcon(){
 	let theChosenOne = emojiIconList[rando];
 	EmojiButton.querySelector('span').innerHTML += `${theChosenOne}`;
 }
+async function randomGIF(){
+	let url = `https://api.giphy.com/v1/gifs/random?api_key=${gifAPIkey}&tag=&rating=${ratingSelected}`;
+	let data = await fetch(url);
+	let gifInfo = await data.json();
+	p(gifInfo)
+}
+async function searchGIF(){
+	let query = searchInput.value;
+	let url = `https://api.giphy.com/v1/gifs/search?api_key=${gifAPIkey}&q=${query}&limit=12&offset=0&rating=${ratingSelected}&lang=en`;
+	let data = await fetch(url);
+	let gifInfo = await data.json();
+	p(gifInfo)
+}
+
+//////////////////ReferenceError: emojiAPIkey is not defined/////////////////
+async function allEmojis(){
+	let url = `https://emoji-api.com/emojis?access_key=${emojiAPIkey}`;
+	p("url")
+	let data = await fetch(url);
+	let emojiInfo = await data.json();
+	p(emojiInfo)
+}
+//////////////////////////////////////////////////////////////////////////
 document.addEventListener('click',(e)=>{
-	if(e.target === GifButton){
-		featuresProcess("gif");
+	if(e.target === GifButton && searchInput.value){
+		searchGIF();
+	}
+	if(e.target === GifButton && !searchInput.value){
+		randomGIF()
+	}
+	if(e.target === EmojiButton && !searchInput.value){
+		allEmojis();
 	}
 })
-function featuresProcess($emoji_or_gif){
-//@ generalAPIcall($call)=> result
-//@ display($result)
-	var call = $emoji_or_gif;
-	var result;
-///////////////////////API call/////////////////////////////////////
-	function generalAPIcall($call){
-		
-
-		if($call === "emoji"){
-			return;
-		}
-		if($call === "gif"){
-			const rating = ["g","pg","pg-13","r"];
-			//blank search field
-			if(!searchInput.value){
-				const apiCall = async()=>{
-					let url = `https://api.giphy.com/v1/gifs/random?api_key=${gifAPIkey}&tag=&rating=${rating[3]}`;
-					let data = await fetch(url);
-					var gifInfo = await data.json();
-					result = gifInfo;
-					return result;
-				};
-				result = apiCall();
-			}else{
-				const apiCall = async ()=>{
-					let query = searchInput.value;
-					let url = `https://api.giphy.com/v1/gifs/search?api_key=${gifAPIkey}&q=${query}&limit=12&offset=0&rating=${rating[3]}&lang=en`;
-					let data = await fetch(url);
-					var gifInfo = await data.json();
-					result = gifInfo;
-					return result;
-				};
-				result = apiCall();
-			}
-		}
-		return result
-	}
-	generalAPIcall(call)
-	p(result[2])//<----HERE
-//////////////////////DISPLAY////////////////////////////////////// <==
-	function display(){}
-
-}	
-
 
 
 export {

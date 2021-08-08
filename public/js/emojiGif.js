@@ -35,12 +35,9 @@ async function searchGIF(){
 	let gifInfo = await data.json();
 	p(gifInfo)
 }
-
-//////////////////ReferenceError: emojiAPIkey is not defined/////////////////
-async function allEmojis(){
-
-	let url = `https://emoji-api.com/emojis?access_key=${emojiAPIkey}`;
-	p("url")
+async function searchEmojis(){
+	let query = searchInput.value;
+	let url = `https://emoji-api.com/emojis?search=${query}&access_key=${emojiAPIkey}`;
 	let data = await fetch(url);
 	let emojiInfo = await data.json();
 	p(emojiInfo)
@@ -53,9 +50,8 @@ document.addEventListener('click',(e)=>{
 	if(e.target === GifButton && !searchInput.value){
 		randomGIF()
 	}
-	if(e.target === EmojiButton && !searchInput.value){
-		e.preventDefault();
-		allEmojis();
+	if(e.target === EmojiButton && searchInput.value){
+		searchEmojis();
 	}
 })
 

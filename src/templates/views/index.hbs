@@ -34,8 +34,16 @@
         
         <!-- <script type="module" src="./js/sidechats.js"></script> -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
-        
-              
+        <script src="https://cdn.tiny.cloud/1/ra92hfz3gsoknrafsbcqjegh5oiq5js3xywbwok9w6t2usq1/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+        <script>
+          tinymce.init({
+            selector: ".mainchat-grid_send-component--features__search-input",
+            plugins: "emoticons",
+            toolbar: "emoticons",
+            toolbar_location: "bottom",
+            menubar: true
+          });
+</script>              
         
         
     </body>

@@ -28,6 +28,7 @@ async function randomGIF(){
 	p(gifInfo)
 }
 async function searchGIF(){
+	p(gifAPIkey)
 	let query = searchInput.value;
 	let url = `https://api.giphy.com/v1/gifs/search?api_key=${gifAPIkey}&q=${query}&limit=12&offset=0&rating=${ratingSelected}&lang=en`;
 	let data = await fetch(url);
@@ -37,6 +38,7 @@ async function searchGIF(){
 
 //////////////////ReferenceError: emojiAPIkey is not defined/////////////////
 async function allEmojis(){
+
 	let url = `https://emoji-api.com/emojis?access_key=${emojiAPIkey}`;
 	p("url")
 	let data = await fetch(url);
@@ -52,6 +54,7 @@ document.addEventListener('click',(e)=>{
 		randomGIF()
 	}
 	if(e.target === EmojiButton && !searchInput.value){
+		e.preventDefault();
 		allEmojis();
 	}
 })

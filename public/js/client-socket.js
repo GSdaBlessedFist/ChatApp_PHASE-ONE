@@ -11,6 +11,7 @@ import {
 const p = console.log;
 const a = alert;
 
+
 const chatArea = document.getElementById("chat-area"),
     mainchatExpand = document.getElementById("mainchat-expand"),
     mainchatSendButton = document.getElementById("mainchat-sendButton"),

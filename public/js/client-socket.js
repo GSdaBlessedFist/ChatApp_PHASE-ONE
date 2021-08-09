@@ -52,7 +52,7 @@ socket.on('chat', (data) => {
                     <span class="messageObj--message-date" id="message-date">${dateFormat()}</span>
                 </div>
                 <div class="messageObj--message">${data.message}</div>
-                <div class="messageObj--image x">${data.image}</div>
+                <div class="messageObj--image ">${data.image}</div>
         </div>
     `;
     updateScroll();

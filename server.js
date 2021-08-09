@@ -64,6 +64,7 @@ io.on('connection', function(socket) {
     });
   })
   socket.on('gif.message',(data)=>{
+    console.log(data.image)
     io.sockets.emit('chat',{
       socketidInfo: socket.id,
       screenname: data.screenname,

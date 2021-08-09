@@ -63,7 +63,13 @@ io.on('connection', function(socket) {
       image: data.image
     });
   })
-
+  socket.on('gif.message',(data)=>{
+    io.sockets.emit('chat',{
+      socketidInfo: socket.id,
+      screenname: data.screenname,
+      image: data.image
+    })
+  })
 
 
   socket.on('disconnect', () => {

@@ -315,7 +315,7 @@
     grid-area: sendComponent;
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: 20% 55% 25%;
+    grid-template-columns: 20% 60% 20%;
     grid-template-areas: "sendButton input features";
     position: relative;
     border-top: 2px orange solid;
@@ -323,9 +323,10 @@
     width: 100%;
     /*height: 50px;*/
     height: 100%;
+    padding-right: 20px;
     background: #001;
     border: 2px white solid; }
-    /* line 67, ../../src/scss/mainchat-grid.scss */
+    /* line 68, ../../src/scss/mainchat-grid.scss */
     .mainchat-grid_send-component--send-button {
       grid-area: sendButton;
       margin: 5px auto;
@@ -336,13 +337,15 @@
       /*height: 75%;*/
       height: 40px;
       border: 1px white solid;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
       text-decoration: none;
       font-family: "Montserrat", sans-serif;
       transition: all var(--quick); }
-      /* line 78, ../../src/scss/mainchat-grid.scss */
+      /* line 81, ../../src/scss/mainchat-grid.scss */
       .mainchat-grid_send-component--send-button:hover {
         background: var(--c1); }
-    /* line 82, ../../src/scss/mainchat-grid.scss */
+    /* line 85, ../../src/scss/mainchat-grid.scss */
     .mainchat-grid_send-component--input {
       grid-area: input;
       width: 95%;
@@ -354,53 +357,50 @@
       color: #333;
       font-size: 2.85vh;
       border: 0px red solid;
-      border-radius: 5px;
       font-family: "Roboto Slab", serif; }
-      /* line 95, ../../src/scss/mainchat-grid.scss */
+      /* line 98, ../../src/scss/mainchat-grid.scss */
       .mainchat-grid_send-component--input::-webkit-input-placeholder {
         /* Chrome/Opera/Safari */
         color: var(--c1);
         text-align: left;
         opacity: 0.5; }
-      /* line 101, ../../src/scss/mainchat-grid.scss */
+      /* line 104, ../../src/scss/mainchat-grid.scss */
       .mainchat-grid_send-component--input::-moz-placeholder {
         /* Firefox 19+ */
         color: var(--c1);
         text-align: left;
         opacity: 0.5; }
-    /* line 108, ../../src/scss/mainchat-grid.scss */
+    /* line 111, ../../src/scss/mainchat-grid.scss */
     .mainchat-grid_send-component--features {
-      width: 90%;
+      width: 200px;
       grid-area: features;
       display: grid;
+      position: relative;
       grid-template-columns: 50% 25% 25%;
       grid-template-areas: "searchinput emojis gifs";
       /*height: 75%;*/
       height: 40px;
-      margin: 5px auto;
-      /*border: 3px red solid;<--helper*/ }
-      /* line 118, ../../src/scss/mainchat-grid.scss */
+      margin: 8px auto; }
+      /* line 124, ../../src/scss/mainchat-grid.scss */
       .mainchat-grid_send-component--features__search-input {
-        border-top-left-radius: 150px;
-        border-bottom-left-radius: 150px;
         padding-left: 15px;
         padding-right: 15px;
         font-size: 1.25rem;
         font-family: "Roboto Slab", serif;
         color: var(--c3); }
-        /* line 126, ../../src/scss/mainchat-grid.scss */
+        /* line 132, ../../src/scss/mainchat-grid.scss */
         .mainchat-grid_send-component--features__search-input::-webkit-input-placeholder {
           /* Chrome/Opera/Safari */
           color: var(--c1);
           text-align: center;
           opacity: 0.5; }
-        /* line 132, ../../src/scss/mainchat-grid.scss */
+        /* line 138, ../../src/scss/mainchat-grid.scss */
         .mainchat-grid_send-component--features__search-input::-moz-placeholder {
           /* Firefox 19+ */
           color: var(--c1);
           text-align: center;
           opacity: 0.5; }
-      /* line 139, ../../src/scss/mainchat-grid.scss */
+      /* line 145, ../../src/scss/mainchat-grid.scss */
       .mainchat-grid_send-component--features__emojis-button {
         display: flex;
         justify-content: center;
@@ -412,11 +412,11 @@
         /* line 61, ../../src/scss/variables.scss */
         .mainchat-grid_send-component--features__emojis-button:hover {
           background: var(--c1); }
-        /* line 145, ../../src/scss/mainchat-grid.scss */
+        /* line 151, ../../src/scss/mainchat-grid.scss */
         .mainchat-grid_send-component--features__emojis-button > span {
           user-select: none;
           transform: scale(1.75); }
-      /* line 150, ../../src/scss/mainchat-grid.scss */
+      /* line 156, ../../src/scss/mainchat-grid.scss */
       .mainchat-grid_send-component--features__gifs-button {
         display: flex;
         justify-content: center;
@@ -430,23 +430,32 @@
         /* line 61, ../../src/scss/variables.scss */
         .mainchat-grid_send-component--features__gifs-button:hover {
           background: var(--c1); }
-      /* line 159, ../../src/scss/mainchat-grid.scss */
+      /* line 165, ../../src/scss/mainchat-grid.scss */
       .mainchat-grid_send-component--features__menu {
-        width: 200px;
+        display: flex;
+        flex-wrap: wrap;
+        width: 215px;
         height: 200px;
         position: relative;
         top: -240px;
         border: 2px white solid;
         background: transparent;
         background-size: cover;
-        overflow: hidden; }
-        /* line 168, ../../src/scss/mainchat-grid.scss */
+        overflow: scroll; }
+        /* line 176, ../../src/scss/mainchat-grid.scss */
         .mainchat-grid_send-component--features__menu--randomGIF {
-          display: flex;
           position: relative;
-          width: 200px;
+          width: 100%;
           justify-content: center;
           align-items: center; }
+        /* line 182, ../../src/scss/mainchat-grid.scss */
+        .mainchat-grid_send-component--features__menu--gifSearchItems {
+          width: 100px;
+          height: 100px;
+          transition: all .35s; }
+          /* line 186, ../../src/scss/mainchat-grid.scss */
+          .mainchat-grid_send-component--features__menu--gifSearchItems:hover {
+            border: 5px white solid; }
 
 /*@import "sidechat-grid";*/
 /* width */

@@ -59,6 +59,7 @@ socket.on('chat', (data) => {
         // var links = Array.from(document.getElementsByClassName("messageObj--screenname"));
 })
 
+
 export{
     mainchatInput,
     mainchatMessageArea

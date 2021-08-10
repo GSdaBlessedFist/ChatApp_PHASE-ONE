@@ -1,8 +1,8 @@
 @import "variables";
 
 .messageObj{
-    /*display: block;*/
-    display:inline-block;
+    display: inline-block;
+    /* display:inline-block;*/
     width: 55%;
     text-align:  left;
     border-bottom: 3px hsla(0,100%,100%,0.075) solid;
@@ -28,13 +28,17 @@
   &--image{
     
     border-top: 2px white solid;
-    height: 500px;
+    width: 50%;
     @include LINE(1px);
   }
 }
 .others-message{
   /*display:inline-block;*/
-  
+  text-align: right;
+  position: relative;
+  right: -45%;
+}
+.others-gif{
   text-align: right;
   position: relative;
   right: -45%;

@@ -28,8 +28,8 @@
 /*MIXIN's*/
 /* line 3, ../../src/scss/message.scss */
 .messageObj {
-  /*display: block;*/
   display: inline-block;
+  /* display:inline-block;*/
   width: 55%;
   text-align: left;
   border-bottom: 3px rgba(255, 255, 255, 0.075) solid; }
@@ -55,13 +55,19 @@
   /* line 28, ../../src/scss/message.scss */
   .messageObj--image {
     border-top: 2px white solid;
-    height: 500px;
+    width: 50%;
     background: #001;
     border: 1px white solid; }
 
 /* line 35, ../../src/scss/message.scss */
 .others-message {
   /*display:inline-block;*/
+  text-align: right;
+  position: relative;
+  right: -45%; }
+
+/* line 41, ../../src/scss/message.scss */
+.others-gif {
   text-align: right;
   position: relative;
   right: -45%; }

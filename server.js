@@ -65,8 +65,8 @@ io.on('connection', function(socket) {
   })
   socket.on('gif.message',(data)=>{
     console.log(data.image)
-    io.sockets.emit('chat',{
-      socketidInfo: socket.id,
+    io.sockets.emit('gif.chat',{
+      socketInfo: socket.id,
       screenname: data.screenname,
       image: data.image
     })

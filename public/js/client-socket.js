@@ -52,15 +52,39 @@ socket.on('chat', (data) => {
                     <span class="messageObj--message-date" id="message-date">${dateFormat()}</span>
                 </div>
                 <div class="messageObj--message">${data.message}</div>
-                <div class="messageObj--image ">${data.image}</div>
+                <!--<div class="messageObj--image ">${data.image}</div>-->
         </div>
     `;
     updateScroll();
         // var links = Array.from(document.getElementsByClassName("messageObj--screenname"));
 })
 
+socket.on('gif.chat', (data) => {
+    function updateScroll(){
+        mainchatMessageArea.scrollTop = mainchatMessageArea.scrollHeight;
+    }
+    function dateFormat(){
+        var date = new Date();
+        return `${date.toLocaleTimeString()}`;
+    }
+    console.log(socket.id)
+    console.log(data.socketInfo)
+    mainchatMessageArea.innerHTML += `
+        <div class="messageObj ${socket.id==data.socketInfo?"":"others-gif"}">
+                <div class="messageObj--screenname"><div>${data.screenname}
+                    <span class="messageObj--message-date" id="message-date">${dateFormat()}</span>
+                </div>
+                
+                <video class="messageObj--image" src="${data.image}" controls autoplay muted/>
+        </div>
+    `;
+    updateScroll();
+        // var links = Array.from(document.getElementsByClassName("messageObj--screenname"));
+})
 
 export{
     mainchatInput,
     mainchatMessageArea
 }
+// <div class="messageObj ${socket.id==data.socketInfo?"":"others-gif"}">
+// <img class="messageObj--image" src="${data.image}"/>

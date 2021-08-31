@@ -225,28 +225,32 @@
       /* line 163, ../../src/scss/mainchat-grid.scss */
       .mainchat-grid_send-component--features__menu {
         display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
         opacity: 0;
         flex-wrap: wrap;
-        width: 215px;
-        height: 0px;
+        width: 216px;
+        /*height: 200px;*/
         position: relative;
         top: -240px;
         border: 2px white solid;
-        background: transparent;
         background-size: cover;
         overflow: scroll;
-        transform-origin: bottom; }
-        /* line 176, ../../src/scss/mainchat-grid.scss */
+        transform-origin: 100%;
+        box-sizing: border-box; }
+        /* line 180, ../../src/scss/mainchat-grid.scss */
         .mainchat-grid_send-component--features__menu--randomGIF {
           position: relative;
-          width: 100%;
-          justify-content: center;
-          align-items: center; }
-        /* line 182, ../../src/scss/mainchat-grid.scss */
+          width: 100%; }
+        /* line 185, ../../src/scss/mainchat-grid.scss */
         .mainchat-grid_send-component--features__menu--gifSearchItems {
+          display: block;
+          opacity: 1;
           width: 100px;
           height: 100px;
+          border: 1px white solid;
           transition: all .35s; }
-          /* line 186, ../../src/scss/mainchat-grid.scss */
+          /* line 192, ../../src/scss/mainchat-grid.scss */
           .mainchat-grid_send-component--features__menu--gifSearchItems:hover {
-            border: 5px white solid; }
+            border: 2px white solid; }

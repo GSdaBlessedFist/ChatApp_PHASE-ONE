@@ -28,34 +28,32 @@ const emojiIconList = [
 //////////////////////////////////////////////////////////////
 document.addEventListener('click', (e) => {
     if (e.target === GifButton && searchInput.value) {
-        
-
         (async () => {
             let search = await searchGIF();
             await searchGIFmenuDisplay(search);
+
             let searchPicLinks = document.querySelectorAll('.mainchat-grid_send-component--features__menu--gifSearchItems');
             searchPicLinks.forEach((e)=>{
-            	e.addEventListener('click',()=>{
+                e.addEventListener('click',()=>{
                     let original = e.getAttribute('data-original');
-            		console.log(original)
-            		socket.emit('gif.message', {
-                            screenname,
+                    console.log(original)
+                    socket.emit('gif.message', {
+                        screenname,
                             // message: mainchatInput.value,
-                            image: original
+                        image: original
                     })
-            	})
+                })
             })
         })()
     }
     if (e.target === GifButton && !searchInput.value) {
-
-        var menu = document.querySelector('.mainchat-grid_send-component--features__menu');
-        gsap.to(menu,{duration:1.5,height:200,opacity:1, ease:"bounce.out"})
-
-
         (async () => {
                 var randomGif = await randomGIF();
                 await randomGIFmenuDisplay(randomGif.preview);
+                let previewHeight = randomGif.previewHeight;
+                var menu = document.querySelector('.mainchat-grid_send-component--features__menu');
+                var menuHeight = menu.getBoundingClientRect().height;
+                gsap.set(menu,{height:200,opacity:1})
                 let randPicLink = document.querySelector('.mainchat-grid_send-component--features__menu--randomGIF');
                 randPicLink.addEventListener('click', (e) => {
                     socket.emit('gif.message', {
@@ -66,10 +64,10 @@ document.addEventListener('click', (e) => {
                 })
             }
         )()
-	}
-	if (e.target === EmojiButton && searchInput.value) {
-	    searchEmojis();
-	}
+    }
+    if (e.target === EmojiButton && searchInput.value) {
+        searchEmojis();
+    }
 })
 ////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////
@@ -86,7 +84,10 @@ async function randomGIF() {
     let data = await fetch(url);
     let gifInfo = await data.json();
     return {
-        preview: gifInfo.data.images.fixed_width_downsampled.url,
+        // preview: gifInfo.data.images.fixed_width_still.url,
+        // preview: gifInfo.data.images.fixed_width_downsampled.url,
+        preview: gifInfo.data.images.fixed_height_still.url,
+        previewHeight: gifInfo.data.images.fixed_width_downsampled.height,
         original: gifInfo.data.images.original.mp4
     };
 }
@@ -96,17 +97,17 @@ async function randomGIFmenuDisplay(randomGif) {
     }
     var gif = randomGif;
     const html = `
-		<a href="#">
-			<img class="mainchat-grid_send-component--features__menu--randomGIF" src=${gif}/>
-		</a>
-	`;
+        <a href="#">
+            <img class="mainchat-grid_send-component--features__menu--randomGIF" src=${gif}/>
+        </a>
+    `;
     featuresMenu.innerHTML += html;
 }
 /////////////////////////////////////////////////////
 ////////////////////////////////////////////////////
 async function searchGIF() {
     // https://api.giphy.com/v1/gifs/search?api_key=wd4XV1dNHMoJGtWlJ6r6n8xPpCZ1h6XC&q=treasure&limit=12&offset=0&rating=r&lang=en`
-    p(gifAPIkey)
+    p(gifAPIkey + "LOOK HERE")
     let query = searchInput.value;
     let url = `https://api.giphy.com/v1/gifs/search?api_key=${gifAPIkey}&q=${query}&limit=12&offset=0&rating=${ratingSelected}&lang=en`;
     let data = await fetch(url);
@@ -118,13 +119,14 @@ async function searchGIFmenuDisplay(gifs) {
     if (featuresMenu.hasChildNodes) {
         featuresMenu.innerHTML = ""
     }
+    gsap.set(".mainchat-grid_send-component--features__menu--gifSearchItems",{height:200,opacity:1});
     for (var i = 0; i < gifs.length; i++) {
         featuresMenu.innerHTML += `
-		<a href="#" >
-			<img class="mainchat-grid_send-component--features__menu--gifSearchItems" data-original=${gifs[i].images.original.mp4} src=${gifs[i].images.fixed_width_small.mp4}/>
-		</a>`
-    }
+        <a href="#" >
+            <img class="mainchat-grid_send-component--features__menu--gifSearchItems" data-original=${gifs[i].images.original.mp4} src=${gifs[i].images.fixed_width_small_still.url}/>
+        </a>`
 
+    }
 }
 ////////////////////////////////////////////////////
 ////////////////////////////////////////////////////
@@ -136,8 +138,6 @@ async function searchEmojis() {
     p(emojiInfo)
 }
 //////////////////////////////////////////////////////////////////////////
-
-
 export {
     randoEmojiIcon
 }

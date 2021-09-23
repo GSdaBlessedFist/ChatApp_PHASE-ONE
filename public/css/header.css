@@ -35,9 +35,7 @@
   align-items: center;
   height: var(--navbarHeight);
   /*background: var(--c2);*/
-  overflow: hidden;
-  background: #001;
-  border: 1px white solid; }
+  overflow: hidden; }
   /* line 11, ../../src/scss/header.scss */
   .header-title {
     padding: 0px 20px;

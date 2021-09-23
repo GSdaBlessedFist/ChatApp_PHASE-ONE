@@ -1,4 +1,5 @@
 const p = console.log;
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const hbs = require('hbs');
@@ -10,8 +11,8 @@ const chalk = require('chalk');
 
 // https://emoji-api.com
 //https://developers.giphy.com/
-const emojiAPIkey = "7c1a8fdba401fa696373ff67213109114f05e1f1";
-const gifAPIkey = "wd4XV1dNHMoJGtWlJ6r6n8xPpCZ1h6XC";
+// const emojiAPIkey = "7c1a8fdba401fa696373ff67213109114f05e1f1";
+const gifAPIkey = process.env.GIF_APIKEY;
 //https://emoji-api.com/emojis?search=happy&access_key=7c1a8fdba401fa696373ff67213109114f05e1f1
 
 const port = process.env.PORT || 3400;
@@ -37,8 +38,7 @@ app.get("/", (req, res) => {
   res.render("index", {
     title: nameofApp,
     clientname: "clientName",
-    gifAPIkey: gifAPIkey,
-    emojiAPIkey: emojiAPIkey
+    gifAPIkey: gifAPIkey
   })
 })
 const io = socket(server);

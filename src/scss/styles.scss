@@ -23,7 +23,10 @@
    box-sizing: border-box;
    color: white;
    @include siteFont;
-   /*background: #333;*/
+   // background: #333;
+}
+body{
+   background: var(--c2);
 }
 html{height: 100%;}
 

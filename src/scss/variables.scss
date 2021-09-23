@@ -63,8 +63,8 @@
     }
 }
 @mixin LINE($weight,$color:white){
-  background: #001;
-  border: $weight $color solid;
+  // background: #001;
+  // border: $weight $color solid;
 }
 @mixin anime($name,$time,$reps){
   //*insert keyframe name >$name*//

@@ -4,14 +4,15 @@
 
 .mainbody{
 	display: flex;
+	width: 100%;
 	flex-direction: column;
 	/*justify-content: center;*/
-	justify-content: space-evenly;
+	justify-content: flex-start;
 	align-items: center;
 	flex:1;
-	/*height: 100%;*/
 	/*background: #333;*/
 	/*@include LINE(5px);*/
+	border: 5px green solid;
 	color: white;
 	overflow: hidden;
 }

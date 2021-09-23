@@ -13,11 +13,11 @@ const a = alert;
 
 
 const chatArea = document.getElementById("chat-area"),
-    mainchatExpand = document.getElementById("mainchat-expand"),
+    // mainchatExpand = document.getElementById("mainchat-expand"),
     mainchatSendButton = document.getElementById("mainchat-sendButton"),
     mainchatInput = document.getElementById("mainchat-input"),
     mainchatMessageArea = document.getElementById("mainchat-messageArea");
-mainchatExpand.style.display = "none";
+// mainchatExpand.style.display = "none";
 mainchatMessageArea.innerHTML = "";
 mainchatMessageArea.scrollTop = mainchatMessageArea.scrollHeight;
 var sidechat1Socket;

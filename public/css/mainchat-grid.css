@@ -37,74 +37,20 @@
   width: 100%;
   height: 100%;
   grid-template-columns: 1fr;
-  grid-template-rows: 8% 84% 8%;
-  grid-template-areas: "title" "messageArea" "sendComponent";
+  grid-template-rows: 92% 8%;
+  grid-template-areas: "messageArea" "sendComponent";
   overflow: hidden;
   /*///////////////////////////////////////////////////////*/
   /*///////////////////////////////////////////////////////*/
   /*///////////////////////////////////////////////////////*/
   /*@include LINE(0px,transparent);*/ }
-  /* line 12, ../../src/scss/mainchat-grid.scss */
-  .mainchat-grid_title {
-    grid-area: title;
-    display: grid;
-    width: 100%;
-    height: 100%;
-    grid-template-columns: 4vw auto 4vw;
-    grid-template-rows: 1fr;
-    grid-template-areas: "hidden title expand";
-    position: relative;
-    top: 0px;
-    text-align: center;
-    font-family: "Roboto Slab", serif;
-    font-size: clamp(1.5rem, 1.75rem, 2rem);
-    color: white;
-    background: #001;
-    border: 2px white solid; }
-    /* line 25, ../../src/scss/mainchat-grid.scss */
-    .mainchat-title_hidden-button {
-      grid-area: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-decoration: none;
-      font-family: "Montserrat", sans-serif;
-      transition: all var(--quick);
-      background: #001;
-      border: 1px white solid; }
-      /* line 61, ../../src/scss/variables.scss */
-      .mainchat-title_hidden-button:hover {
-        background: var(--c1); }
-    /* line 31, ../../src/scss/mainchat-grid.scss */
-    .mainchat-title_text {
-      grid-area: title;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #001;
-      border: 1px white solid; }
-    /* line 36, ../../src/scss/mainchat-grid.scss */
-    .mainchat-title_expand-button {
-      grid-area: expand;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-decoration: none;
-      font-family: "Montserrat", sans-serif;
-      transition: all var(--quick);
-      background: #001;
-      border: 1px white solid; }
-      /* line 61, ../../src/scss/variables.scss */
-      .mainchat-title_expand-button:hover {
-        background: var(--c1); }
   /* line 45, ../../src/scss/mainchat-grid.scss */
   .mainchat-grid_message-area {
     grid-area: messageArea;
     overflow-y: auto;
     width: 100%;
-    background: #001;
-    border: 2px white solid; }
-  /* line 54, ../../src/scss/mainchat-grid.scss */
+    padding: 20px; }
+  /* line 55, ../../src/scss/mainchat-grid.scss */
   .mainchat-grid_send-component {
     grid-area: sendComponent;
     display: grid;
@@ -116,10 +62,8 @@
     bottom: 0px;
     width: 100%;
     height: 100%;
-    padding-right: 20px;
-    background: #001;
-    border: 2px white solid; }
-    /* line 67, ../../src/scss/mainchat-grid.scss */
+    padding: 10px 20px; }
+    /* line 69, ../../src/scss/mainchat-grid.scss */
     .mainchat-grid_send-component--send-button {
       grid-area: sendButton;
       margin: 5px auto;
@@ -135,12 +79,15 @@
       text-decoration: none;
       font-family: "Montserrat", sans-serif;
       transition: all var(--quick); }
-      /* line 80, ../../src/scss/mainchat-grid.scss */
+      /* line 82, ../../src/scss/mainchat-grid.scss */
       .mainchat-grid_send-component--send-button:hover {
         background: var(--c1); }
-    /* line 84, ../../src/scss/mainchat-grid.scss */
+    /* line 86, ../../src/scss/mainchat-grid.scss */
     .mainchat-grid_send-component--input {
       grid-area: input;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       width: 95%;
       height: 40px;
       margin: 5px auto;
@@ -150,69 +97,55 @@
       font-size: 2.85vh;
       border: 0px red solid;
       font-family: "Roboto Slab", serif; }
-      /* line 96, ../../src/scss/mainchat-grid.scss */
+      /* line 101, ../../src/scss/mainchat-grid.scss */
       .mainchat-grid_send-component--input::-webkit-input-placeholder {
         /* Chrome/Opera/Safari */
         color: var(--c1);
         text-align: left;
         opacity: 0.5; }
-      /* line 102, ../../src/scss/mainchat-grid.scss */
+      /* line 107, ../../src/scss/mainchat-grid.scss */
       .mainchat-grid_send-component--input::-moz-placeholder {
         /* Firefox 19+ */
         color: var(--c1);
         text-align: left;
         opacity: 0.5; }
-    /* line 109, ../../src/scss/mainchat-grid.scss */
+    /* line 114, ../../src/scss/mainchat-grid.scss */
     .mainchat-grid_send-component--features {
-      width: 200px;
+      width: 100%;
       grid-area: features;
       display: grid;
       position: relative;
-      grid-template-columns: 50% 25% 25%;
-      grid-template-areas: "searchinput emojis gifs";
-      /*height: 75%;*/
-      height: 40px;
-      margin: 8px auto; }
-      /* line 122, ../../src/scss/mainchat-grid.scss */
+      margin-top: 5px;
+      margin-bottom: 5px;
+      grid-template-columns: 75% 25%;
+      grid-template-areas: "searchinput gifs"; }
+      /* line 125, ../../src/scss/mainchat-grid.scss */
       .mainchat-grid_send-component--features__search-input {
+        height: 40px;
         padding-left: 15px;
         padding-right: 15px;
         font-size: 1.25rem;
         font-family: "Roboto Slab", serif;
         color: var(--c3); }
-        /* line 130, ../../src/scss/mainchat-grid.scss */
+        /* line 134, ../../src/scss/mainchat-grid.scss */
         .mainchat-grid_send-component--features__search-input::-webkit-input-placeholder {
           /* Chrome/Opera/Safari */
           color: var(--c1);
           text-align: center;
           opacity: 0.5; }
-        /* line 136, ../../src/scss/mainchat-grid.scss */
+        /* line 140, ../../src/scss/mainchat-grid.scss */
         .mainchat-grid_send-component--features__search-input::-moz-placeholder {
           /* Firefox 19+ */
           color: var(--c1);
           text-align: center;
           opacity: 0.5; }
-      /* line 143, ../../src/scss/mainchat-grid.scss */
-      .mainchat-grid_send-component--features__emojis-button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-decoration: none;
-        font-family: "Montserrat", sans-serif;
-        transition: all var(--quick);
-        border: 1px white solid; }
-        /* line 61, ../../src/scss/variables.scss */
-        .mainchat-grid_send-component--features__emojis-button:hover {
-          background: var(--c1); }
-        /* line 149, ../../src/scss/mainchat-grid.scss */
-        .mainchat-grid_send-component--features__emojis-button > span {
-          user-select: none;
-          transform: scale(1.75); }
-      /* line 154, ../../src/scss/mainchat-grid.scss */
+      /* line 158, ../../src/scss/mainchat-grid.scss */
       .mainchat-grid_send-component--features__gifs-button {
         display: flex;
+        position: relative;
         justify-content: center;
         align-items: center;
+        height: 40px;
         text-decoration: none;
         font-family: "Montserrat", sans-serif;
         transition: all var(--quick);
@@ -222,7 +155,7 @@
         /* line 61, ../../src/scss/variables.scss */
         .mainchat-grid_send-component--features__gifs-button:hover {
           background: var(--c1); }
-      /* line 163, ../../src/scss/mainchat-grid.scss */
+      /* line 169, ../../src/scss/mainchat-grid.scss */
       .mainchat-grid_send-component--features__menu {
         display: flex;
         justify-content: center;
@@ -230,27 +163,30 @@
         flex-direction: row;
         opacity: 0;
         flex-wrap: wrap;
-        width: 216px;
+        width: 280px;
         /*height: 200px;*/
-        position: relative;
-        top: -240px;
+        position: absolute;
+        top: -215px;
         border: 2px white solid;
         background-size: cover;
         overflow: scroll;
-        transform-origin: 100%;
-        box-sizing: border-box; }
-        /* line 180, ../../src/scss/mainchat-grid.scss */
+        transform-origin: 100%; }
+        /* line 185, ../../src/scss/mainchat-grid.scss */
         .mainchat-grid_send-component--features__menu--randomGIF {
           position: relative;
           width: 100%; }
-        /* line 185, ../../src/scss/mainchat-grid.scss */
+        /* line 189, ../../src/scss/mainchat-grid.scss */
         .mainchat-grid_send-component--features__menu--gifSearchItems {
-          display: block;
           opacity: 1;
-          width: 100px;
-          height: 100px;
+          width: 124px;
+          height: 124px;
           border: 1px white solid;
           transition: all .35s; }
-          /* line 192, ../../src/scss/mainchat-grid.scss */
+          /* line 195, ../../src/scss/mainchat-grid.scss */
           .mainchat-grid_send-component--features__menu--gifSearchItems:hover {
-            border: 2px white solid; }
+            border: 1px white solid; }
+        /* line 200, ../../src/scss/mainchat-grid.scss */
+        #features-menu-closeButton {
+          width: 25px;
+          height: 25px;
+          border: 2px red solid; }

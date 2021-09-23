@@ -1,7 +1,7 @@
 
 
 <div class="mainchat-grid">
-   <div class="mainchat-grid_title">
+   <!-- <div class="mainchat-grid_title">
       <a href="#" class="mainchat-title_hidden-button" id="mainchat-hidden">
          <div></div>
       </a>
@@ -9,7 +9,7 @@
       <a href="#" class="mainchat-title_expand-button" id="mainchat-expand">
          <div ></div>
       </a>
-   </div>
+   </div> -->
    <div class="mainchat-grid_message-area" id="mainchat-messageArea"></div>
 
    <div class="mainchat-grid_send-component" id="mainchat-grid_send-component">
@@ -21,9 +21,11 @@
       <div class="mainchat-grid_send-component--features">
          <input class="mainchat-grid_send-component--features__search-input" placeholder="search" id="features-search-input"/>
          <!-- <div class="mainchat-grid_send-component--features__emojis-button" id="features-emojis-button"></div> -->
-         <a href="#" class="mainchat-grid_send-component--features__emojis-button" id="features-emojis-button"><span></span></a>
-         <div class="mainchat-grid_send-component--features__gifs-button" id="features-gifs-button">gif</div>
-         <div class="mainchat-grid_send-component--features__menu" id="features-menu"></div>
+         <!-- <a href="#" class="mainchat-grid_send-component--features__emojis-button" id="features-emojis-button"><span></span></a> -->
+         <div class="mainchat-grid_send-component--features__gifs-button" id="features-gifs-button" data-active="close">gif</div>
+         <div class="mainchat-grid_send-component--features__menu" id="features-menu">
+            <a href="#"><div id="features-menu-closeButton">X</div></a>
+         </div>
 
       </div>
    </div><!--class="mainchat-grid_send-component"-->

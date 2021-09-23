@@ -1,7 +1,7 @@
 //signin.js;
 localStorage.clear();
 import{mainchatInput, mainchatMessageArea}from "./client-socket.js";
-import{randoEmojiIcon}from "./emojiGif.js";
+// import{randoEmojiIcon}from "./emojiGif.js";
 
 // sessionStorage.clear();
 const a = alert;
@@ -21,7 +21,7 @@ const styles = getComputedStyle(document.documentElement);
 const lazyFadeOutTime = styles.getPropertyValue('--lazy').slice(0, -1);
 const quickFadeOutTime = styles.getPropertyValue('--quick').slice(0, -1);
 var si = true;
-randoEmojiIcon();//<--EMOJI BUTTON
+// randoEmojiIcon();//<--EMOJI BUTTON
 
 ////////////// SETTING DEFAULT SCREENNAME //////////////
 const randomDefaultScreenNames = ["TypieTech", "Cesars_Salad", "Lazarus_Lu",

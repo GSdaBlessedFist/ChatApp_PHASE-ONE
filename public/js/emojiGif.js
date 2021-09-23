@@ -25,57 +25,83 @@ const emojiIconList = [
     "&#128406",
     "&#129315"
 ]
-//////////////////////////////////////////////////////////////
+p(GifButton.dataset.active + "starting off")
+    //////////////////////////////////////////////////////////////
 document.addEventListener('click', (e) => {
-    if (e.target === GifButton && searchInput.value) {
-        (async () => {
-            let search = await searchGIF();
-            await searchGIFmenuDisplay(search);
+        
+        // var searchedGIFs =document.querySelectorAll("#gifSearchItems")||undefined;
+        // var randomgif = document.querySelectorAll("#randomGIF")||undefined;
 
-            let searchPicLinks = document.querySelectorAll('.mainchat-grid_send-component--features__menu--gifSearchItems');
-            searchPicLinks.forEach((e)=>{
-                e.addEventListener('click',()=>{
-                    let original = e.getAttribute('data-original');
-                    console.log(original)
-                    socket.emit('gif.message', {
-                        screenname,
-                            // message: mainchatInput.value,
-                        image: original
+        // let menuOpen = GifButton.dataset.active==="open";
+        // let notGifMenuItem = e.target === !randomgif || e.target === !searchedGIFs;
+        // if(menuOpen && notGifMenuItem){
+        //     p("sucess")
+        //}
+        if (e.target === GifButton && searchInput.value) {
+            
+                (async() => {
+                    let search = await searchGIF();
+                    await searchGIFmenuDisplay(search);
+                    GifButton.dataset.active = "open";
+                    p(GifButton.dataset.active);
+                    gsap.set(menu, {
+                        height: 200,
+                        width: 280,
+                        opacity: 1
                     })
-                })
-            })
-        })()
-    }
-    if (e.target === GifButton && !searchInput.value) {
-        (async () => {
-                var randomGif = await randomGIF();
-                await randomGIFmenuDisplay(randomGif.preview);
-                let previewHeight = randomGif.previewHeight;
-                var menu = document.querySelector('.mainchat-grid_send-component--features__menu');
-                var menuHeight = menu.getBoundingClientRect().height;
-                gsap.set(menu,{height:200,opacity:1})
-                let randPicLink = document.querySelector('.mainchat-grid_send-component--features__menu--randomGIF');
-                randPicLink.addEventListener('click', (e) => {
-                    socket.emit('gif.message', {
+                    let searchPicLinks = document.querySelectorAll('.mainchat-grid_send-component--features__menu--gifSearchItems');
+                    searchPicLinks.forEach((e) => {
+                        e.addEventListener('click', () => {
+                            let original = e.getAttribute('data-original');
+                            console.log(original)
+                            socket.emit('gif.message', {
+                                screenname,
+                                // message: mainchatInput.value,
+                                image: original
+                            })
+                        })
+                    })
+                })()
+                
+
+        }
+        if (e.target === GifButton && !searchInput.value) {
+            
+                (async() => {
+                    var randomGif = await randomGIF();
+                    await randomGIFmenuDisplay(randomGif.preview);
+                    GifButton.dataset.active = "open";
+
+                    var menu = document.querySelector('.mainchat-grid_send-component--features__menu');
+                    var menuHeight = menu.getBoundingClientRect().height;
+                    gsap.set(menu, {
+                        height: 200,
+                        width: 280,
+                        opacity: 1
+                    })
+                    let randPicLink = document.querySelector('.mainchat-grid_send-component--features__menu--randomGIF');
+                    randPicLink.addEventListener('click', (e) => {
+                        socket.emit('gif.message', {
                             screenname,
                             // message: mainchatInput.value,
                             image: randomGif.original
+                        })
                     })
-                })
-            }
-        )()
-    }
-    if (e.target === EmojiButton && searchInput.value) {
-        searchEmojis();
-    }
-})
-////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////
-function randoEmojiIcon() {
-    let rando = Math.floor(Math.random() * emojiIconList.length);
-    let theChosenOne = emojiIconList[rando];
-    EmojiButton.querySelector('span').innerHTML += `${theChosenOne}`;
-}
+                })()
+            
+
+        }
+        // if (e.target === EmojiButton && searchInput.value) {
+        //     searchEmojis();
+        // }
+    })
+    ////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////
+// function randoEmojiIcon() {
+//     let rando = Math.floor(Math.random() * emojiIconList.length);
+//     let theChosenOne = emojiIconList[rando];
+//     EmojiButton.querySelector('span').innerHTML += `${theChosenOne}`;
+// }
 ////////////////////////////////////////////////////
 ////////////////////////////////////////////////////
 async function randomGIF() {
@@ -88,17 +114,23 @@ async function randomGIF() {
         // preview: gifInfo.data.images.fixed_width_downsampled.url,
         preview: gifInfo.data.images.fixed_height_still.url,
         previewHeight: gifInfo.data.images.fixed_width_downsampled.height,
-        original: gifInfo.data.images.original.mp4
+        original: gifInfo.data.images.original_mp4.mp4 //
     };
 }
 async function randomGIFmenuDisplay(randomGif) {
     if (featuresMenu.hasChildNodes) {
         featuresMenu.innerHTML = ""
     }
+    gsap.set(menu, {
+        height: 200,
+        width: 280,
+        opacity: 1
+    })
+    featuresMenu.style.display="flex";
     var gif = randomGif;
     const html = `
         <a href="#">
-            <img class="mainchat-grid_send-component--features__menu--randomGIF" src=${gif}/>
+            <img class="mainchat-grid_send-component--features__menu--randomGIF" id="randomGIF" src=${gif}/>
         </a>
     `;
     featuresMenu.innerHTML += html;
@@ -115,15 +147,17 @@ async function searchGIF() {
     var gifs = gifInfo.data;
     return gifs;
 }
+
 async function searchGIFmenuDisplay(gifs) {
     if (featuresMenu.hasChildNodes) {
         featuresMenu.innerHTML = ""
     }
-    gsap.set(".mainchat-grid_send-component--features__menu--gifSearchItems",{height:200,opacity:1});
+    featuresMenu.style.display="flex"
+    
     for (var i = 0; i < gifs.length; i++) {
         featuresMenu.innerHTML += `
         <a href="#" >
-            <img class="mainchat-grid_send-component--features__menu--gifSearchItems" data-original=${gifs[i].images.original.mp4} src=${gifs[i].images.fixed_width_small_still.url}/>
+            <img class="mainchat-grid_send-component--features__menu--gifSearchItems" id="gifSearchItems" data-original=${gifs[i].images.original.mp4} src=${gifs[i].images.fixed_width_small_still.url}/>
         </a>`
 
     }
@@ -138,6 +172,6 @@ async function searchEmojis() {
     p(emojiInfo)
 }
 //////////////////////////////////////////////////////////////////////////
-export {
-    randoEmojiIcon
-}
+// export {
+//     randoEmojiIcon
+// }

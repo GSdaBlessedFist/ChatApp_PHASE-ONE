@@ -39,9 +39,7 @@
   grid-template-columns: 1fr;
   grid-template-rows: repeat(3,fr);
   grid-template-areas: "menu" "searchbar" "buttons";
-  border: 3px white solid;
-  background: #001;
-  border: 2.5px white solid; }
+  border: 3px white solid; }
   /* line 16, ../../src/scss/features.scss */
   .features-container--buttons {
     grid-area: buttons;
@@ -61,23 +59,9 @@
       grid-area: emoji;
       text-decoration: none;
       font-family: "Montserrat", sans-serif;
-      transition: all var(--quick);
-      background: #001;
-      border: 1px white solid; }
+      transition: all var(--quick); }
       /* line 61, ../../src/scss/variables.scss */
       .features-container--buttons__emojis:hover {
-        background: var(--c1); }
-    /* line 30, ../../src/scss/features.scss */
-    .features-container--buttons__gifs {
-      position: relative;
-      grid-area: gifs;
-      text-decoration: none;
-      font-family: "Montserrat", sans-serif;
-      transition: all var(--quick);
-      background: #001;
-      border: 1px white solid; }
-      /* line 61, ../../src/scss/variables.scss */
-      .features-container--buttons__gifs:hover {
         background: var(--c1); }
     /* line 36, ../../src/scss/features.scss */
     .features-container--buttons__images {
@@ -85,31 +69,17 @@
       grid-area: images;
       text-decoration: none;
       font-family: "Montserrat", sans-serif;
-      transition: all var(--quick);
-      background: #001;
-      border: 1px white solid; }
+      transition: all var(--quick); }
       /* line 61, ../../src/scss/variables.scss */
       .features-container--buttons__images:hover {
-        background: var(--c1); }
-    /* line 42, ../../src/scss/features.scss */
-    .features-container--buttons__darkmode {
-      position: relative;
-      grid-area: dark;
-      text-decoration: none;
-      font-family: "Montserrat", sans-serif;
-      transition: all var(--quick);
-      background: #001;
-      border: 1px white solid; }
-      /* line 61, ../../src/scss/variables.scss */
-      .features-container--buttons__darkmode:hover {
         background: var(--c1); }
   /* line 49, ../../src/scss/features.scss */
   .features-container--search-bar {
     grid-area: searchbar;
     position: relative;
-    top: -50px;
-    background: #001;
-    border: 1px white solid; }
+    top: -50px; }
   /* line 55, ../../src/scss/features.scss */
   .features-container--menu {
-    grid-area: menu; }
+    grid-area: menu;
+    position: relative;
+    top: -50px; }

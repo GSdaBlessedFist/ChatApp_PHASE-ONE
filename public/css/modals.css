@@ -42,18 +42,17 @@
   top: var(--navbarHeight);
   left: 0;
   width: 100%;
-  height: 83.15vh;
+  height: 84vh;
   opacity: .85;
-  background: #001;
-  border: 2px white solid; }
+  background: #000; }
 
 /*,#invite-modal-screen*/
-/* line 23, ../../src/scss/modals.scss */
+/* line 24, ../../src/scss/modals.scss */
 .signin-modal-message-box {
   position: absolute;
   display: grid;
   width: 40%;
-  height: 200px;
+  height: 270px;
   grid-template-columns: 1fr;
   grid-template-rows: 30% 1fr 15%;
   grid-template-areas: "title" "input" "space";
@@ -62,11 +61,10 @@
   left: 30%;
   text-align: center;
   border-radius: var(--borderRadius);
-  background: #001;
   border: 2px white solid;
   opacity: 1;
   /*display: none;*/ }
-  /* line 38, ../../src/scss/modals.scss */
+  /* line 40, ../../src/scss/modals.scss */
   .signin-modal-message-box--title {
     grid-area: title;
     display: flex;
@@ -76,7 +74,7 @@
     padding: 25px;
     font-size: clamp(2.5vh, 3.5vh, 3.75vh);
     border-bottom: 2px rgba(255, 255, 255, 0.75) solid; }
-  /* line 46, ../../src/scss/modals.scss */
+  /* line 48, ../../src/scss/modals.scss */
   .signin-modal-message-box--input {
     grid-area: input;
     position: relative;
@@ -88,7 +86,7 @@
     text-align: center;
     color: var(--c2);
     font-family: "Merienda", cursive; }
-  /* line 58, ../../src/scss/modals.scss */
+  /* line 60, ../../src/scss/modals.scss */
   .signin-modal-message-box--space {
     grid-area: space;
     border-top: 2px rgba(255, 255, 255, 0.75) solid;

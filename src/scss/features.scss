@@ -27,24 +27,24 @@
       @include buttonize;
       @include LINE(1px);
     }
-    &__gifs{
-      position: relative;
-    	grid-area: gifs;
-      @include buttonize;
-      @include LINE(1px);
-    }
+    // &__gifs{
+    //   position: relative;
+    // 	grid-area: gifs;
+    //   @include buttonize;
+    //   @include LINE(1px);
+    // }
     &__images{
       position: relative;
     	grid-area: images;
       @include buttonize;
       @include LINE(1px);
     }
-    &__darkmode{
-      position: relative;
-    	grid-area: dark;
-      @include buttonize;
-      @include LINE(1px);
-    }
+    // &__darkmode{
+    //   position: relative;
+    // 	grid-area: dark;
+    //   @include buttonize;
+    //   @include LINE(1px);
+    // }
   }
   &--search-bar {
     grid-area: searchbar;
@@ -54,5 +54,7 @@
   }
   &--menu {
     grid-area: menu;
+    position: relative;
+    top: -50px;
   }
 }

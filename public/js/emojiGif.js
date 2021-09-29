@@ -43,8 +43,9 @@ document.addEventListener('click', (e) => {
                     let search = await searchGIF();
                     await searchGIFmenuDisplay(search);
                     GifButton.dataset.active = "open";
+                    // var menu = document.querySelector('.mainchat-grid_send-component--features__menu');
                     p(GifButton.dataset.active);
-                    gsap.set(menu, {
+                    gsap.set(featuresMenu, {
                         height: 200,
                         width: 280,
                         opacity: 1
@@ -72,9 +73,9 @@ document.addEventListener('click', (e) => {
                     await randomGIFmenuDisplay(randomGif.preview);
                     GifButton.dataset.active = "open";
 
-                    var menu = document.querySelector('.mainchat-grid_send-component--features__menu');
-                    var menuHeight = menu.getBoundingClientRect().height;
-                    gsap.set(menu, {
+                    // var menu = document.querySelector('.mainchat-grid_send-component--features__menu');
+                    var menuHeight = featuresMenu.getBoundingClientRect().height;
+                    gsap.set(featuresMenu, {
                         height: 200,
                         width: 280,
                         opacity: 1
@@ -121,7 +122,7 @@ async function randomGIFmenuDisplay(randomGif) {
     if (featuresMenu.hasChildNodes) {
         featuresMenu.innerHTML = ""
     }
-    gsap.set(menu, {
+    gsap.set(featuresMenu, {
         height: 200,
         width: 280,
         opacity: 1

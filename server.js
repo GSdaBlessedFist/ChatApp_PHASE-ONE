@@ -8,12 +8,8 @@ const path = require('path');
 
 const socket = require('socket.io');
 const chalk = require('chalk');
-
-// https://emoji-api.com
 //https://developers.giphy.com/
-// const emojiAPIkey = "7c1a8fdba401fa696373ff67213109114f05e1f1";
 const gifAPIkey = process.env.GIF_APIKEY;
-//https://emoji-api.com/emojis?search=happy&access_key=7c1a8fdba401fa696373ff67213109114f05e1f1
 
 const port = process.env.PORT || 3400;
 const server = app.listen(port, () => {

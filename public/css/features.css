@@ -82,4 +82,5 @@
   .features-container--menu {
     grid-area: menu;
     position: relative;
+    margin: 0px;
     top: -50px; }
